@@ -16,6 +16,11 @@ describe('The QRush App factory function', function() {
             assert.deepEqual([{ gshvfjsf : 214251, ugfjnsmf : '34634huvbjkds' }, { hjmdnbfs : 3275312 }], qRush.getKnownChests());
         });
 
+        it('should be able to initialise the known chest in the factory function', function() {
+            qRush = QRushFactory([ { kydvhf : 12431521, bvnfjffg : 'kjbrgrgr' } ]);
+            assert.deepEqual([ { kydvhf : 12431521, bvnfjffg : 'kjbrgrgr' } ], qRush.getKnownChests());
+        });
+
     });
     
 });
