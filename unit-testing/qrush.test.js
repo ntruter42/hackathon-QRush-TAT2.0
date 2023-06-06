@@ -1,10 +1,11 @@
 describe('The QRush App factory function', function() {
     let qRush;
+    beforeEach(function(){
+        qRush = QRushFactory();
+    });
 
     describe('set and get functionality', function() {
-        beforeEach(function(){
-            qRush = QRushFactory();
-        });
+     
 
         it('should be able to set and get the treasure prize', function() {
             qRush.setKnownChests([{}, {}]);
@@ -23,4 +24,40 @@ describe('The QRush App factory function', function() {
 
     });
     
+
+
+
+    describe('Creating a sponsor Form.' , function(){
+   
+
+        it('It should return a registered company named Shoprite.' , function(){
+             
+            let CompanyName = {"companyName":'Shoprite', "branchAddress":'Ottery', "Date":'2023/06/6', "Email":'shoprite@gmail.com', "extrasDetails" : "0"};
+            
+            qRush.addSponsor(CompanyName)
+            assert.deepEqual([CompanyName], qRush.getSponsors());
+        })
+    
+        
+        it('It should return a registered company named Woolworths.' , function(){
+             
+            let CompanyName = {"companyName":'Woolworths', "branchAddress":'Claremont', "Date":'2023/05/6', "Email":'woolies@gmail.com', "extrasDetails" : "0"};
+           
+            qRush.addSponsor(CompanyName)
+            assert.deepEqual([CompanyName], qRush.getSponsors());
+        })
+    
+        it('It should return an error message, 1 or more sections have not been been filled in.' , function(){
+             
+            let CompanyName = {"companyName":'', "branchAddress":'Claremont', "Date":'2023/05/6', "Email":'', "extrasDetails" : "0"};
+            qRush.addSponsor(CompanyName)
+            assert.deepEqual([], qRush.getSponsors());
+
+
+        })
+    
+       
+    })
+
+
 });
