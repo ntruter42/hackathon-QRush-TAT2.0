@@ -2,7 +2,7 @@
 let chest;
 
 if (localStorage['knownChests']) {
-    chest = localStorage.getItem(JSON.parse('knownChests'));
+    chest = JSON.parse(localStorage['knownChests']);
 }
 
 
