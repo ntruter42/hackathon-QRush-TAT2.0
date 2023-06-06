@@ -1,6 +1,6 @@
-function QRushFactory() {
+function QRushFactory(chest) {
     // create a global variable for the local storage
-    let chestVar;
+    let chestVar = chest || '';
 
     function setKnownChests(chest) {
         chestVar = chest;
