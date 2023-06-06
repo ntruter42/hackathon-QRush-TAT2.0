@@ -1,0 +1,87 @@
+/* ! project styles */
+.accordion-examples__heading {
+    text-align: center;
+  }
+
+  /* ! project styles */
+.accordion-examples__heading {
+    text-align: center;
+  }
+  /* accordion wrapper */
+  .accordion2-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* accordion card */
+  .accordion2-card {
+    width: 380px;
+    border: double rgb(32, 181, 218);
+    background-color: rgb(194, 234, 245);
+  }
+  
+  /* accordion header */
+  .accordion2-card__header {
+    color: #202020;
+    position: relative;
+    padding: 10px;
+    margin-bottom: 0;
+  }
+  
+  /* icons */
+  .icons {
+    position: absolute;
+    right: 10px;
+    color: rgb(32, 175, 218);
+    transform: rotate(0deg);
+    transition: transform 300ms, color 300ms;
+  }
+  
+  /* accordion body */
+  .accordion2-card__body {
+    border-top: solid 1px rgb(32, 178, 218);
+    padding: 10px;
+    color: #3d3b3b;
+    display: none;
+  }
+  
+  /* javascript css classes to be added and removed */
+  .toggleIcon {
+    transform: rotate(45deg);
+    color: hsl(0, 70%, 50%);
+  }
+  
+  .active {
+    display: block;
+  }
+
+
+  /* ! project styles */
+.accordion-examples__heading {
+    text-align: center;
+  }
+  /* accordion wrapper */
+
+  
+  /* icons */
+  .icons {
+    position: absolute;
+    right: 10px;
+    color: rgb(218, 187, 32);
+    transform: rotate(0deg);
+    transition: transform 300ms, color 300ms;
+  }
+  
+
+  
+  /* javascript css classes to be added and removed */
+  .toggleIcon {
+    transform: rotate(45deg);
+    color: hsl(0, 70%, 50%);
+  }
+  
+  .active {
+    display: block;
+  }
