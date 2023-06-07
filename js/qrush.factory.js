@@ -31,7 +31,13 @@ function QRushFactory() {
 
 	// adds a single chest object to list of known chests
 	function discoverChest(chest_id) {
-		//
+		for (let i = 0; i < allChests.length; i++) {
+			const currentChest = allChests[i];
+
+			if (currentChest['chest_id'] === chest_id) {
+				knownChests.push(chest_id);
+			}
+		}
 	}
 
 	//////////////////// SPONSOR FUNCTIONS ////////////////////
@@ -58,11 +64,6 @@ function QRushFactory() {
 		prizesBasket.push();
 	}
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 1acf66818c77b65bf6dd833980a0fa8cd7c2b84d
 	function removePrize(prize_object) {
 		let i = prizesBasket.indexOf(prize_object);
 		prizesBasket.splice(i, 1)
