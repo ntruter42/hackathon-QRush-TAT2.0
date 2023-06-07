@@ -15,8 +15,8 @@ describe('The QRush App factory function', function () {
 
 		it('should set and get the treasure chests', function () {
 			let localStorageChests = [
-				{ 'chest_id': 21425108, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': ''},
-				{ 'chest_id': 32753124, 'location': '-33.927047504280935, 18.45548536441777', 'prizes': ''}
+				{ 'chest_id': 21425108, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': '' },
+				{ 'chest_id': 32753124, 'location': '-33.927047504280935, 18.45548536441777', 'prizes': '' }
 			];
 			qRush.setChests(localStorageChests);
 			assert.deepEqual(localStorageChests, qRush.getChests());
@@ -28,6 +28,22 @@ describe('The QRush App factory function', function () {
 				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263', 'prizes': '' }
 			];
 			qRush.setChests(localStorageChests);
+			assert.deepEqual(localStorageChests, qRush.getChests());
+		});
+
+		it('should add a chest to list of all chests', function () {
+			let localStorageChests = [{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987' }, { 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263' }];
+			qRush.setChests(localStorageChests);
+			assert.deepEqual(localStorageChests, qRush.getChests());
+
+			let newChest = { 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005' };
+			qRush.addChest(newChest);
+
+			localStorageChests = [
+				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' },
+				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263', 'prizes': '' },
+				{ 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': '' }
+			];
 			assert.deepEqual(localStorageChests, qRush.getChests());
 		});
 	});
@@ -170,6 +186,29 @@ describe('The QRush App factory function', function () {
 			qRush.setPrizes(prizeList);
 
 			assert.equal([newPrize1, newPrize2], qRush.getPrizes());
+		});
+	});
+
+	describe('getMapMarkerLocations', function () {
+		it('should return a list of locations of markers for given list', function () {
+			let listOfChests = [
+				{ 'chest_id': 21425108, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': '' },
+				{ 'chest_id': 32753124, 'location': '-33.927047504280935, 18.45548536441777', 'prizes': '' }
+			];
+
+			let listOfLocations = ['-33.92804417019321, 18.423937019115005', '-33.927047504280935, 18.45548536441777'];
+			assert.deepEqual(listOfLocations, qRush.getMapMarkerLocations(listOfChests));
+		});
+
+		it('should return a list of locations of markers for given list', function () {
+			let listOfChests = [
+				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' },
+				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263', 'prizes': '' },
+				{ 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': '' }
+			];
+
+			let listOfLocations = ['-33.91786995338542, 18.422654047132987', '-33.92938377623288, 18.41104307597263', '-33.92804417019321, 18.423937019115005'];
+			assert.deepEqual(listOfLocations, qRush.getMapMarkerLocations(listOfChests));
 		});
 	});
 });
