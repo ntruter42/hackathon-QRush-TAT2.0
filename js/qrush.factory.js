@@ -2,11 +2,10 @@ function QRushFactory() {
 	let allChests = [];
 	let knownChests = [];
 	let sponsors = [];
-	let prizes = [];
-
-	//////////////////// CHEST FUNCTIONS ////////////////////
-
-	// set all chests in area from localStorage / database
+	let prizesBasket = [];
+	let redeemPrize = [];
+	let prizeID = [];
+	//////////////////// Chests
 	function setChests(chests) {
 		allChests = chests;
 	}
@@ -51,29 +50,32 @@ function QRushFactory() {
 
 	//////////////////// PRIZE FUNCTIONS ////////////////////
 
-	// adds a prize to list of prize objects
-	function addPrize(prize) {
-		//
+	function addPrize(objectPrize) {
+		if (validateForm(objectPrize)) {
+			prizesBasket.push(objectPrize);
+		}
+		
 	}
 
-	// remove a prize from list of prize objects
-	function removePrize(prize_id) {
-		//
+	function removePrize(prize_object) {
+		let i = prizesBasket.indexOf(prize_object);
+		prizesBasket.splice(i, 1)
+
 	}
 
 	// sets all prizes available from localStorage / database
 	function setPrizes(prizes) {
-		//
+		prizesBasket = prizes;
 	}
 
 	// returns list of available prizes
 	function getPrizes() {
-		//
+		return prizesBasket;
 	}
 
 	// remove a prize from a treasure chest and adds it to player collection
 	function collectPrize() {
-		//
+		return redeemPrize;
 	}
 
 	//////////////////// LOCATION FUNCTIONS ////////////////////
@@ -94,6 +96,13 @@ function QRushFactory() {
 		}
 		return true;
 	}
+	function validateInput(formInput) {
+		if (formInput === "") {
+			return false;
+		}
+
+		return true;
+	}
 
 	return {
 		setChests,
@@ -109,7 +118,8 @@ function QRushFactory() {
 		setPrizes,
 		getPrizes,
 		collectPrize,
-		validateEmptyForm,
-		getMapMarkerLocations
+		validateForm,
+		getMapMarkerLocations,
+		validateInput
 	}
 }

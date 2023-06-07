@@ -3,6 +3,7 @@
 	--txt-color2: #000;
 	--bg-color1: #2ec4b6;
 	--bg-color2: #cbf3f0;
+	--bg-color3: linear-gradient(0.25turn, #a7d4e7, #585752);
 
 	font-size: 16px;
 	font-family: sans-serif;
@@ -52,6 +53,7 @@ button:active {
 
 .header-section {
 	background-color: var(--bg-color2);
+	width: 100%;
 }
 
 /******************** MAP SECTION ********************/
@@ -102,4 +104,22 @@ button:active {
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
+}
+
+/************************ container for the scan.html file  ***************/
+
+.container {
+	width: 100%;
+	height: auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/************** header section for the scan.html file *************/
+
+.scanner-section {
+	width: 100%;
+	max-width: 600px;
 }
