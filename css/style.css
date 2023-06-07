@@ -1,0 +1,62 @@
+:root {
+	--txt-color1: #fff;
+	--txt-color2: #000;
+	--bg-color2: #cbf3f0;
+	--bg-color1: #2ec4b6;
+
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	width: 100vw;
+	height: 100vh;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 6fr 1fr 4fr 1fr;
+	justify-content: center;
+	align-items: stretch;
+	text-align: center;
+
+	height: 100%;
+}
+
+.grid>* {
+	display: flex;
+	justify-content: center;
+
+	border: 1px solid black;
+}
+
+.header {
+	background-color: var(--bg-color2);
+}
+
+.map {
+	background-color: var(--bg-color1);
+}
+
+#map {
+	height: 100%;
+}
+
+.scan {
+	background-color: var(--bg-color1);
+}
+
+.prizes {
+	background-color: var(--bg-color2);
+}
+
+.extra {
+	background-color: var(--bg-color1);
+}

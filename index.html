@@ -4,19 +4,44 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>QRush</title>
 
         <!-- css style link -->
-        <link rel="stylesheet" href="./styling/style.css">
+        <link rel="stylesheet" href="./css/style.css">
 
+		<!-- google maps -->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     </head>
     
     <body>
-        
+		<div class="grid container">
+			<header class="header">
+				<h1>QRush</h1>
+			</header>
+
+			<section class="map">
+				<h2>Map Section</h2>
+				<div id="map"></div>
+				<script src="https://maps.googleapis.com/maps/api/js?key=INSERT_YOUR_API_KEY&callback=initMap&v=weekly" defer></script>
+			</section>
+
+			<section class="scan">
+				<h2>Scan Button</h2>
+			</section>
+
+			<section class="prizes">
+				<h2>Weekly Prizes</h2>
+			</section>
+
+			<section class="extra">
+				<h2>Extra Buttons</h2>
+			</section>
+		</div>
     </body>
 
     <!-- javaScript links -->
-    <script src="./application-state/qrush.factory.js"></script>
-    <script src="./dom/qrush.dom.js"></script>
+    <script src="./js/qrush.factory.js"></script>
+    <script src="./js/qrush.dom.js"></script>
+	<script src="./js/map.js"></script>
 
 </html>
