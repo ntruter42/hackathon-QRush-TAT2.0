@@ -4,12 +4,28 @@ function QRushFactory() {
 	let prizes = [];
 
 	//////////////////// Chests
+	function setChests(chests) {
+		//
+	}
+
+	function getChests() {
+		// 
+	}
+
+	function addChest(id, location) {
+		//
+	}
+
 	function setKnownChests(chests) {
 		knownChests = chests;
 	}
 
 	function getKnownChests() {
 		return knownChests;
+	}
+
+	function discoverChest(chest_id) {
+		//
 	}
 
 	//////////////////// Sponsors
@@ -40,6 +56,11 @@ function QRushFactory() {
 		//
 	}
 
+	//////////////////// Locations
+	function getMapMarkerLocations(chests) {
+		// 
+	}
+
 	//////////////////// Validation
 	function validateForm(formInputs) {
 		for (let input in formInputs) {
@@ -51,14 +72,19 @@ function QRushFactory() {
 	}
 
 	return {
+		setChests,
+		getChests,
+		addChest,
 		setKnownChests,
 		getKnownChests,
+		discoverChest,
 		addSponsor,
 		getSponsors,
 		addPrize,
 		removePrize,
 		setPrizes,
 		getPrizes,
-		validateForm
+		validateForm,
+		getMapMarkerLocations
 	}
 }
