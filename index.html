@@ -7,34 +7,40 @@
         <title>QRush</title>
 
         <!-- css style link -->
+		<link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="./css/style.css">
 
 		<!-- google maps -->
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=INSERT_YOUR_API_KEY&callback=initMap&v=weekly" defer></script>
     </head>
     
     <body>
 		<div class="grid container">
-			<header class="header">
+			<header class="header-section">
 				<h1>QRush</h1>
 			</header>
-
-			<section class="map">
-				<h2>Map Section</h2>
+			
+			<section class="map-section">
 				<div id="map"></div>
-				<script src="https://maps.googleapis.com/maps/api/js?key=INSERT_YOUR_API_KEY&callback=initMap&v=weekly" defer></script>
 			</section>
 
-			<section class="scan">
-				<h2>Scan Button</h2>
+			<section class="scan-section">
+				<button>SCAN</button>
 			</section>
 
-			<section class="prizes">
+			<section class="prize-section">
 				<h2>Weekly Prizes</h2>
+				<div class="prize-display">
+					<div class="prize"></div>
+					<div class="prize"></div>
+					<div class="prize"></div>
+				</div>
 			</section>
 
-			<section class="extra">
-				<h2>Extra Buttons</h2>
+			<section class="extra-section">
+				<button>HELP</button>
+				<button>SPONSOR</button>
 			</section>
 		</div>
     </body>
@@ -42,6 +48,6 @@
     <!-- javaScript links -->
     <script src="./js/qrush.factory.js"></script>
     <script src="./js/qrush.dom.js"></script>
-	<script src="./js/map.js"></script>
+	<script src="./js/qrush.map.js"></script>
 
 </html>
