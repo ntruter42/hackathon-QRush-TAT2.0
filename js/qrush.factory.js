@@ -39,6 +39,15 @@ function QRushFactory() {
 		return sponsors;
 	}
 
+	//////////////////// Player
+	function setPlayer(playerInfo) {
+		//
+	}
+
+	function getPlayer() {
+		//
+	}
+
 	//////////////////// Prizes
 	function addPrize(prize) {
 		//
@@ -53,6 +62,10 @@ function QRushFactory() {
 	}
 
 	function getPrizes() {
+		//
+	}
+
+	function collectPrize() {
 		//
 	}
 
@@ -84,6 +97,7 @@ function QRushFactory() {
 		removePrize,
 		setPrizes,
 		getPrizes,
+		collectPrize,
 		validateForm,
 		getMapMarkerLocations
 	}
