@@ -76,7 +76,11 @@ describe('The QRush App factory function', function () {
 
 	describe('discoverChest', function () {
 		it('should add a discovered chest to known chests', function () {
-			let localStorageChests = [{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987' }, { 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263' }];
+			let localStorageChests = [
+				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987' },
+				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263' }
+			];
+			
 			qRush.setKnownChests(localStorageChests);
 			assert.deepEqual(localStorageChests, qRush.getKnownChests());
 
