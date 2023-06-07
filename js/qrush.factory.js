@@ -1,10 +1,23 @@
 function QRushFactory() {
-	let allChests = [];
-	let knownChests = [];
-	let sponsors = [];
-	let prizesBasket = [];
-	let redeemPrize = [];
-	let prizeID = [];
+	let prizes = [
+		{'prize_id': 1000, 'sponsor_id': 3000, 'prize_title': 'R100 Uber Voucher'},
+		{'prize_id': 1001, 'sponsor_id': 3001, 'prize_title': '5GB Telkom Data Bundle'},
+		{'prize_id': 1002, 'sponsor_id': 3002, 'prize_title': '1 Ster-Kinekor Ticket'}
+	];
+
+	let chests = [
+		{'chest_id': 2000, 'prize_id': 1000, 'location': '32.546, -18.456'},
+		{'chest_id': 2001, 'prize_id': 1001, 'location': '32.546, -18.456'},
+		{'chest_id': 2002, 'prize_id': 1002, 'location': '32.546, -18.456'}
+	];
+
+	let sponsors = [
+		{'sponsor_id': 3000, 'sponsor_name': 'Uber', 'location': '32.546, -18.456', 'email': 'usama68@gmail.com'},
+		{'sponsor_id': 3001, 'sponsor_name': 'Ster-Kinekor', 'location': '32.546, -18.456', 'email': 'stef123@gmail.com'},
+		{'sponsor_id': 3002, 'sponsor_name': 'Telkom', 'location': '32.546, -18.456', 'email': 'tammy95@yahoo.com'}
+	];
+
+
 	//////////////////// Chests
 	function setChests(chests) {
 		allChests = chests;
@@ -58,11 +71,6 @@ function QRushFactory() {
 		prizesBasket.push();
 	}
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 1acf66818c77b65bf6dd833980a0fa8cd7c2b84d
 	function removePrize(prize_object) {
 		let i = prizesBasket.indexOf(prize_object);
 		prizesBasket.splice(i, 1)
@@ -102,7 +110,6 @@ function QRushFactory() {
 		}
 		return true;
 	}
-
 	function validateInput(formInput) {
 		if (formInput === "") {
 			return false;
@@ -125,7 +132,7 @@ function QRushFactory() {
 		setPrizes,
 		getPrizes,
 		collectPrize,
-		validateEmptyForm,
+		validateForm,
 		getMapMarkerLocations,
 		validateInput
 	}
