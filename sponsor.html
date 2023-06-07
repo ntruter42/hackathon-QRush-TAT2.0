@@ -19,10 +19,11 @@
     </header>
     <main id="container">
       <form id="Sponsor-form">
+        <div class="theMessage"></div>
         <ul>
           <li id="emailElement">
             <label for="company-name">Company Name:</label>
-            <input type="email" id="email" placeholder="Company Name" required />
+            <input type="" id="email" class="companyName" placeholder="Company Name" required />
           </li>
           <li id="nameElement">
             <div id="firstname">
@@ -30,6 +31,7 @@
               <input
                 type="text"
                 id="firstName"
+                class="firstName"
                 placeholder="Contact First Name"
                 required
               />
@@ -39,6 +41,7 @@
               <input
                 type="text"
                 id="lastName"
+                class="lastName"
                 placeholder="Contact Last Name"
                 required
               />
@@ -46,21 +49,21 @@
           </li>
           <li id="emailElement">
             <label for="email-label">Email:</label>
-            <input type="email" id="email" placeholder="Company Email" required />
+            <input type="email" id="email" class="email" placeholder="Company Email" required />
           </li>
           <li id="addressElement">
             <label for="address-label">Branch Address:</label>
-            <input type="address" id="email" placeholder="Company Location" required />
+            <input type="address" id="email" class="branchAddress" placeholder="Company Location" required />
           </li>
          
           <li id="rewardTitleElement">
             <label for="rewardTitle-label">Reward Title:</label>
-            <input type="rewardTitle" id="" placeholder="Reward Title" required />
+            <input type="rewardTitle" id="" class="rewardTitle" placeholder="Reward Title" required />
           </li>
 
           <li id="rewardTypeElement">
             <label for="rewardType-label">Reward Type:</label>
-            <input type="rewardType" id="" placeholder="Reward Type" required />
+            <input type="rewardType" id="" class="rewardType" placeholder="Reward Type" required />
           </li>
 
           <label for="points">
@@ -86,6 +89,7 @@
           <li id="extraComments">
             <label for="">Any comments</label>
             <textarea
+            class="extraComments"
               name=""
               id=""
               placeholder="Enter your comment here..."
@@ -98,8 +102,10 @@
           </li>
         </ul>
       </form>
-      <button>HOW?</button>
-      <button>WHY?</button>
+
+      <a href="how.html"><button aria-setsize="20">HOW?</button></a>
+     <a href="why.html"><button>WHY?</button></a>
+     
     </main>
     <footer>&#169 TAT2.0 Copyright 2023</footer>
   </body>

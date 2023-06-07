@@ -54,8 +54,10 @@ function QRushFactory() {
 		if (validateForm(objectPrize)) {
 			prizesBasket.push(objectPrize);
 		}
-		
+		let prizeID = prizesBasket[prizesBasket.length - 1].prizeID + 1;
+		prizesBasket.push();
 	}
+
 
 
 	function removePrize(prize_object) {
