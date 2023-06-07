@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/style.css">
+
+    </head>
+
+    <body>
+        <div class="grid-container">
+            <header class="header-section">
+                <!-- qr scanner heading -->
+                <h1>QRush</h1>
+            </header>
+            <!-- target html container -->
+            <div id="reader" width="500px"></div>
+    
+            <button>Collect</button>
+            
+        </div>
+        
+    </body>
+
+    <!-- javaScript link for the qr scanner -->
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+    <script src="./js/qrush.factory.js"></script>
+    <script src="./js/qrScanner.dom.js"></script>
+
+</html>
