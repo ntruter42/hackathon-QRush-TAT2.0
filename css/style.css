@@ -1,12 +1,13 @@
 :root {
 	--txt-color1: #fff;
 	--txt-color2: #000;
-	--bg-color2: #cbf3f0;
 	--bg-color1: #2ec4b6;
-	--bg-color3:linear-gradient(0.25turn, #a7d4e7, #585752);
+	--bg-color2: #cbf3f0;
+	--bg-color3: linear-gradient(0.25turn, #a7d4e7, #585752);
 
 	font-size: 16px;
 	font-family: sans-serif;
+	color: var(--txt-color2);
 }
 
 /******************** UNIVERSAL STYLING ********************/
@@ -32,6 +33,7 @@
 
 button {
 	background-color: var(--bg-color2);
+	color: var(--txt-color2);
 
 	padding: 10px 20px;
 	border: none;
@@ -43,10 +45,15 @@ button:active {
 	box-shadow: 0px 1px black;
 }
 
+.hidden {
+	display: none;
+}
+
 /******************** HEADER SECTION ********************/
 
 .header-section {
 	background-color: var(--bg-color2);
+	width: 100%;
 }
 
 /******************** MAP SECTION ********************/
@@ -84,6 +91,9 @@ button:active {
 	height: 150px;
 	width: 150px;
 	background-color: black;
+	border-radius: 1rem;
+
+	overflow: hidden;
 }
 
 /******************** EXTRA SECTION ********************/
@@ -94,4 +104,22 @@ button:active {
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
+}
+
+/************************ container for the scan.html file  ***************/
+
+.container {
+	width: 100%;
+	height: auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/************** header section for the scan.html file *************/
+
+.scanner-section {
+	width: 100%;
+	max-width: 600px;
 }
