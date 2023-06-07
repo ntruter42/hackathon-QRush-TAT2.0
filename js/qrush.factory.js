@@ -44,7 +44,13 @@ function QRushFactory() {
 
 	// adds a single chest object to list of known chests
 	function discoverChest(chest_id) {
-		//
+		for (let i = 0; i < allChests.length; i++) {
+			const currentChest = allChests[i];
+
+			if (currentChest['chest_id'] === chest_id) {
+				knownChests.push(chest_id);
+			}
+		}
 	}
 
 	//////////////////// SPONSOR FUNCTIONS ////////////////////
