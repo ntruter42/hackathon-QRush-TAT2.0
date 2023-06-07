@@ -1,11 +1,12 @@
 :root {
 	--txt-color1: #fff;
 	--txt-color2: #000;
-	--bg-color2: #cbf3f0;
 	--bg-color1: #2ec4b6;
+	--bg-color2: #cbf3f0;
 
 	font-size: 16px;
 	font-family: sans-serif;
+	color: var(--txt-color2);
 }
 
 /******************** UNIVERSAL STYLING ********************/
@@ -31,6 +32,7 @@
 
 button {
 	background-color: var(--bg-color2);
+	color: var(--txt-color2);
 
 	padding: 10px 20px;
 	border: none;
@@ -40,6 +42,10 @@ button {
 
 button:active {
 	box-shadow: 0px 1px black;
+}
+
+.hidden {
+	display: none;
 }
 
 /******************** HEADER SECTION ********************/
@@ -83,6 +89,9 @@ button:active {
 	height: 150px;
 	width: 150px;
 	background-color: black;
+	border-radius: 1rem;
+
+	overflow: hidden;
 }
 
 /******************** EXTRA SECTION ********************/

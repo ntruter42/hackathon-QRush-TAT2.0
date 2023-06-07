@@ -76,18 +76,22 @@ describe('The QRush App factory function', function () {
 
 	describe('discoverChest', function () {
 		it('should add a discovered chest to known chests', function () {
-			let localStorageChests = [{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987' }, { 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263' }];
-			qRush.setKnownChests(localStorageChests);
-			assert.deepEqual(localStorageChests, qRush.getKnownChests());
+			let allChests = [
+				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987' },
+				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263' }
+			];
 
-			let newChest = { 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005' };
-			qRush.discoverChest(newChest);
-
-			let allKnownChests = [
+			allChests = [
 				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' },
 				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263', 'prizes': '' },
 				{ 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': '' }
 			];
+			qRush.setKnownChests(localStorageChests);
+			assert.deepEqual(localStorageChests, qRush.getKnownChests());
+
+			let newChest_id = 33456780;
+			qRush.discoverChest(newChest_id);
+
 			assert.deepEqual(allKnownChests, qRush.getKnownChests());
 		});
 

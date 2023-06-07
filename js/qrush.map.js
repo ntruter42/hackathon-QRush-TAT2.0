@@ -8,17 +8,18 @@
 // to the base of the flagpole.
 function initMap() {
 	const map = new google.maps.Map(document.getElementById("map"), {
-		zoom: 10,
-		center: { lat: -33.9, lng: 151.2 },
+		zoom: 15,
+		center: { lat: -33.9, lng: 18.4 },
 	});
 
+	
 	setMarkers(map);
 }
 
 // Data for the markers consisting of a name, a LatLng and a zIndex for the
 // order in which these markers should display on top of each other.
 const knownChestsLocations = [
-	["Bondi Beach", -33.890542, 151.274856, 4],
+	["St. Georges Mall", -33.890542, 151.274856, 4],
 	["Coogee Beach", -33.923036, 151.259052, 5],
 	["Cronulla Beach", -34.028249, 151.157507, 3],
 	["Manly Beach", -33.80010128657071, 151.28747820854187, 2],

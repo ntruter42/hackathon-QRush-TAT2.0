@@ -1,53 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>QRush</title>
 
-        <!-- css style link -->
-		<link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="./css/style.css">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>QRush</title>
 
-		<!-- google maps -->
-		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=INSERT_YOUR_API_KEY&callback=initMap&v=weekly" defer></script>
-    </head>
-    
-    <body>
-		<div class="grid container">
-			<header class="header-section">
-				<h1>QRush</h1>
-			</header>
-			
-			<section class="map-section">
-				<div id="map"></div>
-			</section>
+	<!-- css style link -->
+	<link rel="stylesheet" href="./css/normalize.css">
+	<link rel="stylesheet" href="./css/style.css">
 
-			<section class="scan-section">
-				<button>SCAN</button>
-			</section>
+	<!-- google maps -->
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=INSERT_YOUR_API_KEY&callback=initMap&v=weekly" defer></script>
 
-			<section class="prize-section">
-				<h2>Weekly Prizes</h2>
-				<div class="prize-display">
-					<div class="prize"></div>
-					<div class="prize"></div>
-					<div class="prize"></div>
-				</div>
-			</section>
+	<!-- leaflets maps -->
+	<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script> -->
+</head>
 
-			<section class="extra-section">
-				<button>HELP</button>
-				<button>SPONSOR</button>
-			</section>
-		</div>
-    </body>
+<body>
+	<div class="grid container">
+		<header class="header-section">
+			<h1>QRush</h1>
+		</header>
 
-    <!-- javaScript links -->
-    <script src="./js/qrush.factory.js"></script>
-    <script src="./js/qrush.dom.js"></script>
-	<script src="./js/qrush.map.js"></script>
+		<section class="map-section">
+			<div id="map"></div>
+		</section>
+
+		<section class="scan-section">
+			<button>SCAN</button>
+		</section>
+
+		<section class="prize-section">
+			<h2>Weekly Prizes</h2>
+			<div class="prize-display">
+				<div class="prize"></div>
+				<div class="prize"></div>
+				<div class="prize"></div>
+			</div>
+		</section>
+
+		<section class="extra-section">
+			<button>HELP</button>
+			<button>SPONSOR</button>
+		</section>
+	</div>
+
+	<div class="attribution-links hidden">
+		<a href="https://www.flaticon.com/free-icons/loot" title="loot icons">
+			Loot icons created by Smashicons - Flaticon
+		</a>
+	</div>
+</body>
+
+<!-- javaScript links -->
+<script src="./js/qrush.factory.js"></script>
+<script src="./js/qrush.dom.js"></script>
+<script src="./js/qrush.map.js"></script>
+<!-- <script src="./js/qrush.api.js"></script> -->
 
 </html>
