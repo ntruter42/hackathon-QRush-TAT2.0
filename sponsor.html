@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="formStyling.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+    <title>Sponsor Form</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">Sponsor Form</h1>
+      <p id="description">
+        Thank you for for expressing your interest we will get back to you within 24hours.
+      </p>
+    </header>
+    <main id="container">
+      <form id="Sponsor-form">
+        <ul>
+          <li id="emailElement">
+            <label for="company-name">Company Name:</label>
+            <input type="email" id="email" placeholder="Company Name" required />
+          </li>
+          <li id="nameElement">
+            <div id="firstname">
+              <label for="firstName-label">First Name:</label>
+              <input
+                type="text"
+                id="firstName"
+                placeholder="Contact First Name"
+                required
+              />
+            </div>
+            <div id="lastname">
+              <label for="lastName-label">Last Name:</label>
+              <input
+                type="text"
+                id="lastName"
+                placeholder="Contact Last Name"
+                required
+              />
+            </div>
+          </li>
+          <li id="emailElement">
+            <label for="email-label">Email:</label>
+            <input type="email" id="email" placeholder="Company Email" required />
+          </li>
+          <li id="addressElement">
+            <label for="address-label">Branch Address:</label>
+            <input type="address" id="email" placeholder="Company Location" required />
+          </li>
+         
+          <li id="rewardTitleElement">
+            <label for="rewardTitle-label">Reward Title:</label>
+            <input type="rewardTitle" id="" placeholder="Reward Title" required />
+          </li>
+
+          <li id="rewardTypeElement">
+            <label for="rewardType-label">Reward Type:</label>
+            <input type="rewardType" id="" placeholder="Reward Type" required />
+          </li>
+
+          <label for="points">
+            Rate your user experience(between 0 and 10):
+          </label>
+          <input type="range" id="points" name="points" min="0" max="10">
+          <datalist id="ticks">
+            <option value="0"></option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5"></option>
+            <option value="6"></option>
+            <option value="7"></option>
+            <option value="8"></option>
+            <option value="9"></option>
+            <option value="10"></option>
+          </datalist>
+      
+     
+        
+          <li id="extraComments">
+            <label for="">Any comments</label>
+            <textarea
+              name=""
+              id=""
+              placeholder="Enter your comment here..."
+            ></textarea>
+          </li>
+          <li>
+            <button type="submit" id="submit" class="submit-button">
+              Submit
+            </button>
+          </li>
+        </ul>
+      </form>
+      <button>HOW?</button>
+      <button>WHY?</button>
+    </main>
+    <footer>&#169 TAT2.0 Copyright 2023</footer>
+  </body>
+</html>

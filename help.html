@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="help.css">
+</head>
+<body>
+<!--* second accordion example -->
+
+<section class="accordion-examples">
+    <h2 class="accordion-examples__heading">Frequently Asked Questions</h2>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
+
+    <div class="accordion2-wrapper">
+      <!-- first accordion -->
+      <div class="accordion2-card">
+        <h3 class="accordion2-card__header">
+       How to play QRush
+          <span class="icons material-icons-outlined">
+            add_circle_outline
+          </span>
+        </h3>
+        <p class="accordion2-card__body">
+       Allow the app to activate your current location. 
+       The map will show you treasure chests near your location.
+       A hint will be provided in order to find the QR code. Once you have 
+       found the QR code use the scanner on the home screen.Redeem your prize before the expiry date. 
+       (You can participate anywhere and anytime.)
+        </p>
+      </div>
+  
+      <!-- second accordion -->
+      <div class="accordion2-card">
+        <h3 class="accordion2-card__header">
+      Who is allowed to participate?
+          <span class="icons material-icons-outlined">
+            add_circle_outline
+          </span>
+        </h3>
+        <p class="accordion2-card__body">
+          No under 18s are allowed.
+          Please be advised those who have medical conditions or disabilities should take precautions.
+        </p>
+      </div>
+  
+      <!-- third accordion -->
+      <div class="accordion2-card">
+        <h3 class="accordion2-card__header">
+          How do I redeem prizes ?
+          <span class="icons material-icons-outlined">
+            add_circle_outline
+          </span>
+        </h3>
+        <p class="accordion2-card__body">
+       Please select the prizes button(heading) it will then take you to a page with the prize you have won. 
+       You will then need to follow those instructions.Redeem your prizes before the expiry date.
+        </p>
+      </div>
+    </div>
+    <div class="accordion2-wrapper">
+        <!-- first accordion -->
+        <div class="accordion2-card">
+          <h3 class="accordion2-card__header">
+           Support
+            <span class="icons material-icons-outlined">
+              add_circle_outline
+            </span>
+          </h3>
+          <p class="accordion2-card__body">
+            In order to keep our Community a place of growth and learning, moderators
+             reserve the right to remove any content and suspend a user account at any time.Please be advised to report bad behavior.
+          </p>
+        </div>
+    
+        <!-- second accordion -->
+        <div class="accordion2-card">
+          <h3 class="accordion2-card__header">
+            Safety precautions
+            <span class="icons material-icons-outlined">
+              add_circle_outline
+            </span>
+          </h3>
+          <p class="accordion2-card__body">
+            Please follow the rules of the road. Make sure to watch your surroundings when walking alone.
+            Keep your valuables safe.Do not not walk around with your phone in hand near smash and grab hotspots.
+          </p>
+        </div>
+    
+        <!-- third accordion -->
+        <div class="accordion2-card">
+          <h3 class="accordion2-card__header">
+            Emergencies
+            <span class="icons material-icons-outlined">
+              add_circle_outline
+            </span>
+          </h3>
+          <p class="accordion2-card__body">
+            In case of a life-threatening emergency please contact the nearest police station,nearest hospital 
+            or medical facility.
+         
+            For after-hours emergencies contact Case Management on 082 800 8727.
+          </p>
+        </div>
+      </div>
+    
+  </section>
+  
+
+<script>
+    const accordion2BtnToggle = document.querySelectorAll(
+    ".accordion2-card__header"
+  );
+  
+  // adding event listener to the accordion2 toggle button
+  for (i of accordion2BtnToggle) {
+    i.addEventListener("click", accordion2ToggleFunction);
+  }
+  
+  // here the other bodies do not automatically close then the current one is open
+  function accordion2ToggleFunction() {
+    this.nextElementSibling.classList.toggle("active");
+    this.children[0].classList.toggle("toggleIcon");
+  }
+
+</script>
+</body>
+</html>
