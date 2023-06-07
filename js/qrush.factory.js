@@ -96,6 +96,7 @@ function QRushFactory() {
 		}
 		return true;
 	}
+
 	function validateInput(formInput) {
 		if (formInput === "") {
 			return false;
@@ -118,7 +119,7 @@ function QRushFactory() {
 		setPrizes,
 		getPrizes,
 		collectPrize,
-		validateForm,
+		validateEmptyForm,
 		getMapMarkerLocations,
 		validateInput
 	}
