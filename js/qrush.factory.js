@@ -1,43 +1,64 @@
-function QRushFactory(chest) {
-    // create a global variable for the local storage
-    let chestVar = chest || '';
-    let sponsors = [];
+function QRushFactory() {
+	let knownChests = [];
+	let sponsors = [];
+	let prizes = [];
 
-    function setKnownChests(chest) {
-        chestVar = chest;
-    }
+	//////////////////// Chests
+	function setKnownChests(chests) {
+		knownChests = chests;
+	}
 
-    function getKnownChests() {
-        return chestVar;
-    }
-    /////////////////////////////////////////function for sponsors
-    function addSponsor(sponsorInfo) {
-        for (let formInput in sponsorInfo) {
-            if (validateForm(sponsorInfo[formInput])) {
-                return;
-            }
-        }
-        sponsors.push(sponsorInfo);
+	function getKnownChests() {
+		return knownChests;
+	}
 
-    }
+	//////////////////// Sponsors
+	function addSponsor(sponsorInfo) {
+		if (validateForm(sponsorInfo)) {
+			sponsors.push(sponsorInfo);
+		}
+	}
 
-    function getSponsors() {
-        return sponsors;
-    }
+	function getSponsors() {
+		return sponsors;
+	}
 
-    function validateForm(input) {
-        if (input === "") {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    /////////////////////////////////////////function for sponsors
-    return {
-        setKnownChests,
-        getKnownChests,
-        addSponsor,//function for sponsors
-        getSponsors,//function for sponsors
-        validateForm
-    }
+	//////////////////// Prizes
+	function addPrize(prize) {
+		//
+	}
+
+	function removePrize(prize_id) {
+		//
+	}
+
+	function setPrizes(prizes) {
+		//
+	}
+
+	function getPrizes() {
+		//
+	}
+
+	//////////////////// Validation
+	function validateForm(formInputs) {
+		for (let input in formInputs) {
+			if (formInputs[input] === "") {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	return {
+		setKnownChests,
+		getKnownChests,
+		addSponsor,
+		getSponsors,
+		addPrize,
+		removePrize,
+		setPrizes,
+		getPrizes,
+		validateForm
+	}
 }
