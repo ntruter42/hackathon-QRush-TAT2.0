@@ -83,12 +83,12 @@ describe('The QRush App factory function', function () {
 			let newChest = { 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005' };
 			qRush.discoverChest(newChest);
 
-			localStorageChests = [
+			let allKnownChests = [
 				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' },
 				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263', 'prizes': '' },
 				{ 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': '' }
 			];
-			assert.deepEqual(localStorageChests, qRush.getKnownChests());
+			assert.deepEqual(allKnownChests, qRush.getKnownChests());
 		});
 
 		it('should add multiple discovered chests to known chests', function () {
@@ -104,13 +104,13 @@ describe('The QRush App factory function', function () {
 			qRush.discoverChest(newChest1);
 			qRush.discoverChest(newChest2);
 
-			localStorageChests = [
+			let allKnownChests = [
 				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' },
 				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263', 'prizes': '' },
 				{ 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': '' },
 				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' }
 			];
-			assert.deepEqual(localStorageChests, qRush.getKnownChests());
+			assert.deepEqual(allKnownChests, qRush.getKnownChests());
 		});
 	});
 
@@ -139,52 +139,45 @@ describe('The QRush App factory function', function () {
 
 	describe('addPrize, removePrize, setPrizes, getPrizes', function () {
 		it('should add a prize to list of prizes', function () {
-			let newPrize = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'sponsor_name': 'Uber' };
+			let newPrize = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'prize_count': 10, 'sponsor_name': 'Uber' };
 
 			qRush.addPrize(newPrize);
 			assert.equal([newPrize], qRush.getPrizes());
 		});
 
 		it('should add multiple prizes to list of prizes', function () {
-			let newPrize1 = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'sponsor_name': 'Uber' };
-			let newPrize2 = { prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'sponsor_name': 'Telkom' };
+			let newPrize1 = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'prize_count': 10, 'sponsor_name': 'Uber' };
+			let newPrize2 = { prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'prize_count': 20, 'sponsor_name': 'Telkom' };
 
 			qRush.addPrize(newPrize1);
 			qRush.addPrize(newPrize2);
-
 			assert.equal([newPrize1, newPrize2], qRush.getPrizes());
 		});
 
 		it('should remove a prize from list of prizes', function () {
-			let newPrize1 = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'sponsor_name': 'Uber' };
-			let newPrize2 = { prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'sponsor_name': 'Telkom' };
+			let newPrize1 = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'prize_count': 10, 'sponsor_name': 'Uber' };
+			let newPrize2 = { prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'prize_count': 20, 'sponsor_name': 'Telkom' };
 
 			qRush.addPrize(newPrize1);
 			qRush.addPrize(newPrize2);
-
 			assert.equal([newPrize1, newPrize2], qRush.getPrizes());
 
 			qRush.removePrize(newPrize1);
-
 			assert.equal([newPrize2], qRush.getPrizes());
 		});
 
 		it('should set a list of prizes', function () {
-			let newPrize1 = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'sponsor_name': 'Uber' };
-			let newPrize2 = { prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'sponsor_name': 'Telkom' };
-
+			let newPrize1 = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'prize_count': 10, 'sponsor_name': 'Uber' };
+			let newPrize2 = { prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'prize_count': 20, 'sponsor_name': 'Telkom' };
 			qRush.addPrize(newPrize1);
 			qRush.addPrize(newPrize2);
-
 			let prizeList = qRush.getPrizes();
 
 			qRush.removePrize(newPrize1);
 			qRush.removePrize(newPrize2);
-
 			assert.equal([], qRush.getPrizes());
 
 			qRush.setPrizes(prizeList);
-
 			assert.equal([newPrize1, newPrize2], qRush.getPrizes());
 		});
 	});
@@ -196,7 +189,10 @@ describe('The QRush App factory function', function () {
 				{ 'chest_id': 32753124, 'location': '-33.927047504280935, 18.45548536441777', 'prizes': '' }
 			];
 
-			let listOfLocations = ['-33.92804417019321, 18.423937019115005', '-33.927047504280935, 18.45548536441777'];
+			let listOfLocations = [
+				'-33.92804417019321, 18.423937019115005',
+				'-33.927047504280935, 18.45548536441777'
+			];
 			assert.deepEqual(listOfLocations, qRush.getMapMarkerLocations(listOfChests));
 		});
 
@@ -207,8 +203,45 @@ describe('The QRush App factory function', function () {
 				{ 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': '' }
 			];
 
-			let listOfLocations = ['-33.91786995338542, 18.422654047132987', '-33.92938377623288, 18.41104307597263', '-33.92804417019321, 18.423937019115005'];
+			let listOfLocations = [
+				'-33.91786995338542, 18.422654047132987',
+				'-33.92938377623288, 18.41104307597263',
+				'-33.92804417019321, 18.423937019115005'
+			];
 			assert.deepEqual(listOfLocations, qRush.getMapMarkerLocations(listOfChests));
+		});
+	});
+
+	describe('collectPrize', function () {
+		it('should decrement prize_count from collected prize', function () {
+			let prizeList = [
+				{ prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'prize_count': 10, 'sponsor_name': 'Uber' },
+				{ prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'prize_count': 20, 'sponsor_name': 'Telkom' }
+			];
+
+			qRush.collectPrize(34564565);
+
+			let newPrizeList = [
+				{ prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'prize_count': 9, 'sponsor_name': 'Uber' },
+				{ prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'prize_count': 20, 'sponsor_name': 'Telkom' }
+			];
+
+			assert.deepEqual(newPrizeList, qRush.getPrizes());
+		});
+
+		it('should remove prize if prize-count reaches 0', function () {
+			let prizeList = [
+				{ prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'prize_count': 1, 'sponsor_name': 'Uber' },
+				{ prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'prize_count': 2, 'sponsor_name': 'Telkom' }
+			];
+
+			qRush.collectPrize(34564565);
+
+			let newPrizeList = [
+				{ prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'prize_count': 2, 'sponsor_name': 'Telkom' }
+			];
+
+			assert.deepEqual(newPrizeList, qRush.getPrizes());
 		});
 	});
 });
