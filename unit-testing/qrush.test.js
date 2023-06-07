@@ -142,7 +142,7 @@ describe('The QRush App factory function', function () {
 			let newPrize = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'prize_count': 10, 'sponsor_name': 'Uber' };
 
 			qRush.addPrize(newPrize);
-			assert.equal([newPrize], qRush.getPrizes());
+			assert.deepEqual([newPrize], qRush.getPrizes());
 		});
 
 		it('should add multiple prizes to list of prizes', function () {
@@ -151,7 +151,7 @@ describe('The QRush App factory function', function () {
 
 			qRush.addPrize(newPrize1);
 			qRush.addPrize(newPrize2);
-			assert.equal([newPrize1, newPrize2], qRush.getPrizes());
+			assert.deepEqual([newPrize1, newPrize2], qRush.getPrizes());
 		});
 
 		it('should remove a prize from list of prizes', function () {
@@ -160,10 +160,10 @@ describe('The QRush App factory function', function () {
 
 			qRush.addPrize(newPrize1);
 			qRush.addPrize(newPrize2);
-			assert.equal([newPrize1, newPrize2], qRush.getPrizes());
+			assert.deepEqual([newPrize1, newPrize2], qRush.getPrizes());
 
 			qRush.removePrize(newPrize1);
-			assert.equal([newPrize2], qRush.getPrizes());
+			assert.deepEqual([newPrize2], qRush.getPrizes());
 		});
 
 		it('should set a list of prizes', function () {
@@ -171,14 +171,16 @@ describe('The QRush App factory function', function () {
 			let newPrize2 = { prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'prize_count': 20, 'sponsor_name': 'Telkom' };
 			qRush.addPrize(newPrize1);
 			qRush.addPrize(newPrize2);
-			let prizeList = qRush.getPrizes();
+			assert.deepEqual([newPrize1, newPrize2], qRush.getPrizes());
+			let prizeList = [newPrize1, newPrize2];
 
+			console.log(prizeList)
 			qRush.removePrize(newPrize1);
 			qRush.removePrize(newPrize2);
-			assert.equal([], qRush.getPrizes());
-
+			assert.deepEqual([], qRush.getPrizes());
+			
 			qRush.setPrizes(prizeList);
-			assert.equal([newPrize1, newPrize2], qRush.getPrizes());
+			assert.deepEqual([newPrize1, newPrize2], qRush.getPrizes());
 		});
 	});
 
