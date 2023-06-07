@@ -5,17 +5,44 @@ describe('The QRush App factory function', function () {
 		qRush = QRushFactory();
 	});
 
-	describe('setKnownChests, getKnownChests', function () {
+	describe('addChest, setChests, getChests', function () {
 		it('should set and get the treasure chests', function () {
+			let localStorageChests = [];
+
+			qRush.setChests(localStorageChests);
+			assert.deepEqual([], qRush.getChests());
+		});
+
+		it('should set and get the treasure chests', function () {
+			let localStorageChests = [
+				{ 'chest_id': 21425108, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': ''},
+				{ 'chest_id': 32753124, 'location': '-33.927047504280935, 18.45548536441777', 'prizes': ''}
+			];
+			qRush.setChests(localStorageChests);
+			assert.deepEqual(localStorageChests, qRush.getChests());
+		});
+
+		it('should initialise all chests in the factory function', function () {
+			let localStorageChests = [
+				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' },
+				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263', 'prizes': '' }
+			];
+			qRush.setChests(localStorageChests);
+			assert.deepEqual(localStorageChests, qRush.getChests());
+		});
+	});
+
+	describe('setKnownChests, getKnownChests', function () {
+		it('should set and get the known treasure chests', function () {
 			let localStorageChests = [];
 			qRush.setKnownChests(localStorageChests);
 			assert.deepEqual([], qRush.getKnownChests());
 		});
 
-		it('should set and get the treasure chests', function () {
+		it('should set and get the known treasure chests', function () {
 			let localStorageChests = [
-				{ chest_id: 21425108, chest_location: '-33.92804417019321, 18.423937019115005' },
-				{ chest_id: 32753124, chest_location: '-33.927047504280935, 18.45548536441777' }
+				{ 'chest_id': 21425108, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': '' },
+				{ 'chest_id': 32753124, 'location': '-33.927047504280935, 18.45548536441777', 'prizes': '' }
 			];
 			qRush.setKnownChests(localStorageChests);
 			assert.deepEqual(localStorageChests, qRush.getKnownChests());
@@ -23,8 +50,8 @@ describe('The QRush App factory function', function () {
 
 		it('should be able to initialise the known chests in the factory function', function () {
 			let localStorageChests = [
-				{ chest_id: 53903426, chest_location: '-33.91786995338542, 18.422654047132987' },
-				{ chest_id: 24982562, chest_location: '-33.92938377623288, 18.41104307597263' }
+				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' },
+				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263', 'prizes': '' }
 			];
 			qRush.setKnownChests(localStorageChests);
 			assert.deepEqual(localStorageChests, qRush.getKnownChests());
@@ -33,39 +60,39 @@ describe('The QRush App factory function', function () {
 
 	describe('discoverChest', function () {
 		it('should add a discovered chest to known chests', function () {
-			let localStorageChests = [{ chest_id: 53903426, chest_location: '-33.91786995338542, 18.422654047132987' }, { chest_id: 24982562, chest_location: '-33.92938377623288, 18.41104307597263' }];
+			let localStorageChests = [{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987' }, { 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263' }];
 			qRush.setKnownChests(localStorageChests);
 			assert.deepEqual(localStorageChests, qRush.getKnownChests());
 
-			let newChest = { chest_id: 33456780, chest_location: '-33.92804417019321, 18.423937019115005' };
+			let newChest = { 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005' };
 			qRush.discoverChest(newChest);
 
 			localStorageChests = [
-				{ chest_id: 53903426, chest_location: '-33.91786995338542, 18.422654047132987' },
-				{ chest_id: 24982562, chest_location: '-33.92938377623288, 18.41104307597263' },
-				{ chest_id: 33456780, chest_location: '-33.92804417019321, 18.423937019115005' }
+				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' },
+				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263', 'prizes': '' },
+				{ 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': '' }
 			];
 			assert.deepEqual(localStorageChests, qRush.getKnownChests());
 		});
 
 		it('should add multiple discovered chests to known chests', function () {
 			let localStorageChests = [
-				{ chest_id: 53903426, chest_location: '-33.91786995338542, 18.422654047132987' },
-				{ chest_id: 24982562, chest_location: '-33.92938377623288, 18.41104307597263' }
+				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' },
+				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263', 'prizes': '' }
 			];
 			qRush.setKnownChests(localStorageChests);
 			assert.deepEqual(localStorageChests, qRush.getKnownChests());
 
-			let newChest1 = { chest_id: 33456780, chest_location: '-33.92804417019321, 18.423937019115005' };
-			let newChest2 = { chest_id: 53903426, chest_location: '-33.91786995338542, 18.422654047132987' };
+			let newChest1 = { 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005' };
+			let newChest2 = { 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987' };
 			qRush.discoverChest(newChest1);
 			qRush.discoverChest(newChest2);
 
 			localStorageChests = [
-				{ chest_id: 53903426, chest_location: '-33.91786995338542, 18.422654047132987' },
-				{ chest_id: 24982562, chest_location: '-33.92938377623288, 18.41104307597263' },
-				{ chest_id: 33456780, chest_location: '-33.92804417019321, 18.423937019115005' },
-				{ chest_id: 53903426, chest_location: '-33.91786995338542, 18.422654047132987' }
+				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' },
+				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263', 'prizes': '' },
+				{ 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005', 'prizes': '' },
+				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' }
 			];
 			assert.deepEqual(localStorageChests, qRush.getKnownChests());
 		});
@@ -96,15 +123,15 @@ describe('The QRush App factory function', function () {
 
 	describe('addPrize, removePrize, setPrizes, getPrizes', function () {
 		it('should add a prize to list of prizes', function () {
-			let newPrize = { 'prize_id': 34564565, 'prize_title': 'R200 Uber Voucher', 'sponsor_name': 'Uber' };
+			let newPrize = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'sponsor_name': 'Uber' };
 
 			qRush.addPrize(newPrize);
 			assert.equal([newPrize], qRush.getPrizes());
 		});
 
 		it('should add multiple prizes to list of prizes', function () {
-			let newPrize1 = { 'prize_id': 34564565, 'prize_title': 'R200 Uber Voucher', 'sponsor_name': 'Uber' };
-			let newPrize2 = { 'prize_id': 34564566, 'prize_title': '5GB Telkom Data Bundle', 'sponsor_name': 'Telkom' };
+			let newPrize1 = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'sponsor_name': 'Uber' };
+			let newPrize2 = { prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'sponsor_name': 'Telkom' };
 
 			qRush.addPrize(newPrize1);
 			qRush.addPrize(newPrize2);
@@ -113,8 +140,8 @@ describe('The QRush App factory function', function () {
 		});
 
 		it('should remove a prize from list of prizes', function () {
-			let newPrize1 = { 'prize_id': 34564565, 'prize_title': 'R200 Uber Voucher', 'sponsor_name': 'Uber' };
-			let newPrize2 = { 'prize_id': 34564566, 'prize_title': '5GB Telkom Data Bundle', 'sponsor_name': 'Telkom' };
+			let newPrize1 = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'sponsor_name': 'Uber' };
+			let newPrize2 = { prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'sponsor_name': 'Telkom' };
 
 			qRush.addPrize(newPrize1);
 			qRush.addPrize(newPrize2);
@@ -127,8 +154,8 @@ describe('The QRush App factory function', function () {
 		});
 
 		it('should set a list of prizes', function () {
-			let newPrize1 = { 'prize_id': 34564565, 'prize_title': 'R200 Uber Voucher', 'sponsor_name': 'Uber' };
-			let newPrize2 = { 'prize_id': 34564566, 'prize_title': '5GB Telkom Data Bundle', 'sponsor_name': 'Telkom' };
+			let newPrize1 = { prize_id: 34564565, 'prize_title': 'R200 Uber Voucher', 'sponsor_name': 'Uber' };
+			let newPrize2 = { prize_id: 34564566, 'prize_title': '5GB Telkom Data Bundle', 'sponsor_name': 'Telkom' };
 
 			qRush.addPrize(newPrize1);
 			qRush.addPrize(newPrize2);
