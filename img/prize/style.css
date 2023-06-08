@@ -1,0 +1,47 @@
+
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .prize-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 20px;
+    }
+
+    .prize {
+      width: 200px;
+      margin-bottom: 20px;
+      background-color: #002240;
+      padding: 10px;
+    }
+
+    .prize-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .prize-description {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    button {
+      background-color: #002240;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
