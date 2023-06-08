@@ -22,12 +22,10 @@ body {
 .grid {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 80px 1fr 80px;
+	grid-template-rows: 80px 1fr;
 	justify-content: center;
 	align-items: stretch;
 	text-align: center;
-
-	height: 90%;
 }
 
 .grid>* {
@@ -63,4 +61,11 @@ button:active {
 .header-section {
 	background-color: var(--bg-color2);
 	width: 100%;
+}
+
+.scanner-section {
+	width: 800px;
+	height: 660px;
+	justify-self: center;
+	margin-bottom: 20px;
 }
