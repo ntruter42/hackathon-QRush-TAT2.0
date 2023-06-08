@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WeeklyPrizes</title>
+  <style>
+ body {
+      background-color: #222;
+      color: #fff;
+   
+      margin: auto;
+      padding: 15px;
+    }
+
+    .prize-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 660px;
+      justify-content: space-between;
+      margin: 20px;
+    }
+
+    .prize {
+      width: 200px;
+      margin-bottom: 20px;
+      background-color: #002240;
+      padding: 20px;
+    }
+
+    .prize-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .prize-description {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    button {
+      background-color: #002240;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <H1 style="text-align: center;">WEEKLY PRIZES</H1>
+  <div id="prize-container"></div>
+  <button id="previous-button" >prev</button>
+      <button id="next-button">next</button>
+
+      <script>
+        // Array containing prize data can still be changed 
+        var prizes = [
+          {
+            image: 'img/prize/specsavers.jpg',
+            description: 'Get R1500 off any frame offer avalaible until 1st August 2023'
+          },
+          {
+            image: 'img/prize/telkom.webp',
+            description: 'Massive savings Data bundle .15GB data, 7,5GB anytime data and 7,5GB night data, valid for 61 days for anytime data and 31 days for night surfer, replacing its 5GB + 5GB bundle.'
+          },
+          {
+            image: 'img/prize/clicks.jpg',
+            description: 'buy any 2 sorbet prizes get 1 free'
+          },
+          {
+            image: 'img/prize/caltex.png',
+            description: 'Top up today and recieve 2 litres free.'
+          },
+          {
+            image: 'img/prize/kfc.jpg',
+            description: 'Come around for your bucket of wings no charge.'
+          },
+          {
+            image: 'img/prize/Bolt.jpg',
+            description: '50% off all your Bolt rides for the month of June 2023'
+          },
+          {
+            image: 'img/prize/home.jpg',
+            description: 'Get 20% off any household prizes today'
+          },
+          {
+            image: 'img/prize/park.jpeg',
+            description: 'Join us Thursday evening at 7pm slot for free. Last until 29th October 2023'
+          },
+          {
+            image: 'img/prize/movies.jpg',
+            description: 'Ster-Kinekor is giving out 1 free movie ticket on your birthday'
+          },
+          {
+            image: 'img/prize/spaDay.jpg',
+            description: 'Half day spa package: 2 hours swedish massage, gel manicure and express pedicure with a complimentary foot massage'
+          },
+          {
+            image: 'img/prize/food.jpeg',
+            description: 'buy 5kg onions and get a 10kg potatoes free. Offer lasts until 20 June 2023'
+          },
+          {
+            image: 'img/prize/uber.jpg',
+            description: 'Recieve a complimentry Juice with your next uber Eats order'
+          },
+
+
+        ];
+
+        var currentPrizeAmount = 0;
+        var prizesPerSet = 4;
+        var container = document.querySelector('#prize-container');
+        var previousButton = document.querySelector('#previous-button');
+        var nextButton = document.querySelector('#next-button');
+
+        function displayprizes() {
+          container.innerHTML = '';
+
+          for (var i = currentPrizeAmount; i < currentPrizeAmount + prizesPerSet; i++) {
+            if (i >= prizes.length) {
+              // if theres no more prizes to display then it will break 
+              break;
+            }
+
+            var prize = prizes[i];
+
+            var prizeElement = document.createElement('div');
+
+            prizeElement.classList.add('prize');
+
+            var imageElement = document.createElement('img');
+
+            imageElement.src = prize.image;
+            imageElement.classList.add('prize-image');
+            prizeElement.appendChild(imageElement);
+//imageElement and descriptionElement are appended as child elements to the prizeElement 
+//the prizeElement is appended as a child element to the container div.
+            var descriptionElement = document.createElement('div');
+            descriptionElement.textContent = prize.description;
+            descriptionElement.classList.add('prize-description');
+            prizeElement.appendChild(descriptionElement);
+
+            container.appendChild(prizeElement);
+          }
+
+          previousButton.disabled = currentPrizeAmount === 0;
+          nextButton.disabled = currentPrizeAmount + prizesPerSet >= prizes.length;
+        }
+
+        function goToNextSet() {
+          currentPrizeAmount += prizesPerSet;//Next set prizes 4
+          displayprizes();
+        }
+
+        function goToPreviousSet() {
+          currentPrizeAmount -= prizesPerSet;// previous prizes
+          displayprizes();
+        }
+
+        nextButton.addEventListener('click', goToNextSet);
+        previousButton.addEventListener('click', goToPreviousSet);
+
+   
+        displayprizes();
+      </script>
+</body>
+
+</html>
