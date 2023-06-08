@@ -1,87 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>QRush | Sponsor</title>
 	<link rel="shortcut icon" href="img/icons/blue-qr.ico" type="image/x-icon">
-	
-    <link rel="stylesheet" href="css/form.css" />
-  </head>
-  <body>
+	<link rel="stylesheet" href="css/form.css" />
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSaVxGBJnYe1NY_HrO1g3BJy5KGEkNFCY&callback=initMap&v=weekly" defer></script> -->
+
+</head>
+
+<body>
 	<header class="header-section">
 		<h1>QRush</h1>
 	</header>
-    <main id="container">
-		<br><h2 id="title">ADD A REWARD</h2>
+	<main id="container">
+
+		<br>
+		<h2 id="title">ADD A REWARD</h2>
 		<p id="description">
 			Thank you for for expressing your interest we will get back to you within 24hours.
 		</p>
+
 		<form id="Sponsor-form">
-        <div class="theMessage"></div>
-        <ul>
-          <li id="emailElement">
-            <label for="company-name">Company Name:</label>
-            <input type="" id="email" class="companyName" placeholder="Company Name" required />
-          </li>
-          <li id="nameElement">
-            <div id="firstname">
-              <label for="firstName-label">First Name:</label>
-              <input
-                type="text"
-                id="firstName"
-                class="firstName"
-                placeholder="Contact First Name"
-                required
-              />
-            </div>
-            <div id="lastname">
-              <label for="lastName-label">Last Name:</label>
-              <input
-                type="text"
-                id="lastName"
-                class="lastName"
-                placeholder="Contact Last Name"
-                required
-              />
-            </div>
-          </li>
-          <li id="emailElement">
-            <label for="email-label">Email:</label>
-            <input type="email" id="email" class="email" placeholder="Company Email" required />
-          </li>
-          <li id="addressElement">
-            <label for="address-label">Branch Address:</label>
-            <input type="address" id="email" class="branchAddress" placeholder="Company Location" required />
-          </li>
-         
-          <li id="rewardTitleElement">
-            <label for="rewardTitle-label">Reward Title:</label>
-            <input type="rewardTitle" id="" class="rewardTitle" placeholder="Reward Title" required />
-          </li>
+			<div class="theMessage"></div>
+			<ul>
+				<li id="emailElement">
+					<label for="company-name">Company Name:</label>
+					<input type="" id="email" class="companyName" placeholder="Company Name" required />
+				</li>
 
-          <li id="extraComments">
-            <label for="">Any comments</label>
-            <textarea
-            class="extraComments"
-              name=""
-              id=""
-              placeholder="Enter your comment here..."
-            ></textarea>
-          </li>
-          <li>
-            <button type="submit" id="submit" class="submit-button" onclick="">
-              Submit
-            </button>
-          </li>
-        </ul>
-      </form>
+				<li id="nameElement">
+					<div id="firstname">
+						<label for="firstName-label">First Name:</label>
+						<input type="text" id="firstName" class="firstName" placeholder="First Name" required />
+					</div>
+				</li>
 
-      <a href="help.html"><button width ="60px">HOW?</button></a>
-     <a href="why.html"><button>WHY?</button></a>
-     
-    </main>
-    <footer>&#169 TAT2.0 Copyright 2023</footer>
-  </body>
+				<li id="emailElement">
+					<label for="email-label">Email:</label>
+					<input type="email" id="email" class="email" placeholder="Email" required />
+				</li>
+				<li id="addressElement">
+					<label for="address-label">Branch Address:</label>
+					<input type="text" id="address" class="branchAddress" placeholder="Branch Address" required />
+				</li>
+
+				<li id="rewardTitleElement">
+					<label for="rewardTitle-label">Reward Title:</label>
+					<input type="rewardTitle" id="" class="rewardTitle" placeholder="Reward Title" required />
+				</li>
+
+				<li id="extraComments">
+					<label for="">Number of rewards:</label>
+					<textarea class="extraComments" name="" id="" placeholder="Enter your comment here..."></textarea>
+				</li>
+				<li>
+					<button type="button" id="submit" class="submit-button" onclick="">
+						Submit
+					</button>
+				</li>
+			</ul>
+		</form>
+	</main>
+	<footer>&#169 TAT2.0 Copyright 2023</footer>
+</body>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="js/qrush.factory.js"></script>
+<script src="js/form.dom.js"></script>
+
 </html>

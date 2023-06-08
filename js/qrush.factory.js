@@ -102,7 +102,6 @@ function QRushFactory() {
 		if (validateEmptyForm(newSponsor)) {
 			sponsors.push(newSponsor);
 		}
-
 		return newSponsor.sponsor_id;
 	}
 
@@ -115,7 +114,7 @@ function QRushFactory() {
 
 	// add a single prize to list of prizes,
 	// then allocate it to an empty chest
-	function addPrize(sponsor_name, fullname, email, address, title, count) {
+	function addPrize(sponsor_name, fullname, email, location, title, count) {
 		let sponsor_id = getNewSponsorId();
 
 		for (let i in sponsors) {
@@ -124,9 +123,8 @@ function QRushFactory() {
 			}
 		}
 
-		// TODO: use Google API to convert address to string
 		if (sponsor_id === getNewSponsorId()) {
-			addSponsor(sponsor_name, address, email);
+			addSponsor(sponsor_name, location, email);
 		}
 
 		let newPrize = {
