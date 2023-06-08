@@ -80,3 +80,12 @@ button:active {
 	padding: 10px 20px;
 	justify-self: center;
 }
+
+.treasure {
+	overflow: hidden;
+	background-color: #000;
+}
+
+.treasure img {
+	width: fit-content;
+}

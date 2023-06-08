@@ -10,8 +10,7 @@ const qRushScan = QRushFactory();
 const collectButton = document.querySelector('button');
 
 function onScanSuccess(decodedText, decodedResult) {
-	// Handle on success condition with the decoded text or result.
-	// console.log(`Scan result: ${decodedText}`, decodedResult);
+	html5QrcodeScanner.clear();
 
 	if (!isNaN(decodedText)) {
 		let chest_id = Number(decodedText);
@@ -21,17 +20,16 @@ function onScanSuccess(decodedText, decodedResult) {
 			let foundChest = qRushScan.getChestObject(chest_id);
 			let foundPrize = qRushScan.getPrizeObject(foundChest.prize_id);
 
+			console.log(foundPrize.url);
 			document.getElementById("prize-img").src = foundPrize.url;
 			document.getElementById("prize-img").classList.remove('hidden');
 			document.getElementById("reader").classList.add('hidden');
-			// when the scan is successful the foundTreasure element will appear again
-			foundTreasure.style.display = 'block';
 		}
 	}
 }
 
 var html5QrcodeScanner = new Html5QrcodeScanner(
-	"reader", { fps: 50, qrbox: 400 }
+	"reader", { fps: 50, qrbox: 400, disableFlip: true }
 );
 
 html5QrcodeScanner.render(onScanSuccess);
