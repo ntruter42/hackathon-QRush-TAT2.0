@@ -12,7 +12,7 @@ function QRushFactory() {
 		{ 'chest_id': 1002, 'prize_id': 0, 'location': '-33.90697585676683, 18.4226011091381' }
 	];
 	let dummyPrizes = [
-		{ 'prize_id': 2000, 'sponsor_id': 3000, 'prize_title': 'R100 Uber Voucher', 'count': 100 },
+		{ 'prize_id': 2000, 'sponsor_id': 3000, 'prize_title': 'R200 Uber Voucher', 'count': 100, 'url' : '../img/prizes/uber_r200_voucher.jpg'},
 		{ 'prize_id': 2001, 'sponsor_id': 3001, 'prize_title': '5GB Telkom Data Bundle', 'count': 100 },
 		{ 'prize_id': 2002, 'sponsor_id': 3002, 'prize_title': '1 Ster-Kinekor Ticket', 'count': 100 }
 	];
@@ -172,7 +172,7 @@ function QRushFactory() {
 	// get a prize from a treasure chest and adds it to player collection
 	// then decrement that prize count
 	function collectPrize(prize_id) {
-		if (dummyChests[prize_id]) {
+		if (getPrizeObject(prize_id)) {
 			claimedPrizes.push(prize_id);
 
 			// iterate over the length of the dummyPrizes 
