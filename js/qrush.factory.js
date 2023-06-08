@@ -1,4 +1,4 @@
-function QRushFactory(prizes, chests, sponsors, knownChests) {
+function QRushFactory(chests, prizes, sponsors, knownChests, claimedPrizes) {
 	//////////////////// Chests
 	function setChests(chestsInput) {
 		chests = chestsInput;
@@ -11,17 +11,17 @@ function QRushFactory(prizes, chests, sponsors, knownChests) {
 
 	// adds a single chest object to list of all chests
 	function addChest(location) {
-		for (let id in chests) {
-			if (chests[id] === chest_id) {
-				return;
-			}
+		let newChest = { 'chest_id': getNewChestId(), 'prize_id': 0, 'location': location };
+		if (location) {
+			chests.push(newChest);
 		}
-		chests_id()
+
+		return newChest.chest_id;
 	}
 
 	// sets known chests from localStorage / database
-	function setKnownChests(chests) {
-		knownChests = chests;
+	function setKnownChests(chestsInput) {
+		knownChests = chestsInput;
 	}
 
 	// returns all known chests as a list of objects
@@ -30,12 +30,13 @@ function QRushFactory(prizes, chests, sponsors, knownChests) {
 	}
 
 	// adds a single chest object to list of known chests
-	function discoverChest(chest_id) {
-		for (let i = 0; i < allChests.length; i++) {
-			const currentChest = allChests[i];
+	function discoverChest(id) {
+		for (let i = 0; i < chests.length; i++) {
+			const currentChest = chests[i];
 
-			if (currentChest['chest_id'] === chest_id) {
-				knownChests.push(chest_id);
+			if (currentChest[chest_id] === id) {
+				knownChests.push(id);
+				return;
 			}
 		}
 	}
@@ -43,10 +44,19 @@ function QRushFactory(prizes, chests, sponsors, knownChests) {
 	//////////////////// SPONSOR FUNCTIONS ////////////////////
 
 	// adds sponsor details to list of sponsors
-	function addSponsor(sponsorInfo) {
-		if (validateEmptyForm(sponsorInfo)) {
-			sponsors.push(sponsorInfo);
+	function addSponsor(name, location, email) {
+		let newSponsor = {
+			'sponsor_id': getNewSponsorId(),
+			'sponsor_name': name,
+			'location': location,
+			'email': email
+		};
+
+		if (validateEmptyForm(newSponsor)) {
+			sponsors.push(newSponsor);
 		}
+
+		return newSponsor.sponsor_id;
 	}
 
 	// returns a list of all sponsors
@@ -56,31 +66,50 @@ function QRushFactory(prizes, chests, sponsors, knownChests) {
 
 	//////////////////// PRIZE FUNCTIONS ////////////////////
 
-	function addPrize(objectPrize) {
-		if (validateForm(objectPrize)) {
-			prizesBasket.push(objectPrize);
+	// add a single prize to list of prizes,
+	// then allocate it to an empty chest
+	function addPrize(sponsor_id, title, count) {
+		let newPrize = {
+			'prize_id': getNewPrizeId(),
+			'sponsor_id': sponsor_id,
+			'prize_title': title,
+			'count': count
+		};
+
+		if (validateEmptyForm(newPrize)) {
+			prizes.push(newPrize);
 		}
-		let prizeID = prizesBasket[prizesBasket.length - 1].prizeID + 1;
-		prizesBasket.push();
+
+		return newPrize.prize_id;
 	}
 
-	function removePrize(prize_object) {
-		let i = prizesBasket.indexOf(prize_object);
-		prizesBasket.splice(i, 1);
+	function removePrize(id) {
+		let index = -1;
+
+		for (let i = 0; i < prizes.length; i++) {
+			if (prizes[i].prize_id === id) {
+				index = i;
+			}
+		}
+
+		if (index >= 0) {
+			prizes.splice(i, 1);
+		}
 	}
 
 	// sets all prizes available from localStorage / database
-	function setPrizes(prizes) {
-		prizesBasket = prizes;
+	function setPrizes(prizesInput) {
+		prizes = prizesInput;
 	}
 
 	// returns list of available prizes
 	function getPrizes() {
-		return prizesBasket;
+		return prizes;
 	}
 
-	// remove a prize from a treasure chest and adds it to player collection
-	function collectPrize() {
+	// get a prize from a treasure chest and adds it to player collection
+	// then decrement that prize count
+	function collectPrize(prize_id) {
 		return redeemPrize;
 	}
 
