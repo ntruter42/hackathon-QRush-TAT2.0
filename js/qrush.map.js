@@ -1,4 +1,10 @@
-let qRush = QRushFactory();
+const qRushInstance = QRushFactory(
+	JSON.parse(localStorage['chests']) || [],
+	JSON.parse(localStorage['prizes']) || [],
+	JSON.parse(localStorage['sponsors']) || [],
+	JSON.parse(localStorage['knownChests']) || [],
+	JSON.parse(localStorage['claimedPrizes']) || []
+);
 
 /**
  * @license

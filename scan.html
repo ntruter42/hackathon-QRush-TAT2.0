@@ -5,35 +5,29 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>QRush</title>
 
         <link rel="stylesheet" href="./css/normalize.css">
-        <link rel="stylesheet" href="./css/style.css">
-       
+        <link rel="stylesheet" href="./css/scan.css">
     </head>
 
     <body>
-        <div class="container">
-            
-            <header class="header-section box">
-                <!-- qr scanner heading -->
+        <div class="grid container">
+            <header class="header-section">
                 <h1>QRush</h1>
             </header>
 
-            <div class="scanner-section box">
-                <!-- target html container -->
+            <section class="scanner-section box">
                 <div id="reader" width="500px"></div>
-            </div>
+            </section>
     
-            <button>Collect</button>
-            
+            <button name="collect-button" id="collect-button">Collect</button>
         </div>
         
     </body>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js" integrity="sha512-r6rDA7W6ZeQhvl8S7yRVQUKVHdexq+GAlNkNNqVC7YyIV+NwqCTJe2hDWCiffTyRNOeGEzRRJ9ifvRm/HCzGYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
     <script src="./js/qrush.factory.js"></script>
-    <script src="./js/qrScanner.dom.js"></script>
-    
+    <script src="./js/scan.dom.js"></script>
+
 </html>

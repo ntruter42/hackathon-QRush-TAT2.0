@@ -178,7 +178,7 @@ function QRushFactory(chests, prizes, sponsors, knownChests, claimedPrizes) {
 		setPrizes,
 		getPrizes,
 		collectPrize,
-		validateForm,
+		validateEmptyForm,
 		getMapMarkerLocations,
 		validateInput,
 		getNewChestId,
