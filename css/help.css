@@ -19,6 +19,51 @@ body {
 	background: var(--bg-color3);
 }
 
+/******************** UNIVERSAL STYLING ********************/
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 80px;
+	justify-content: center;
+	align-items: stretch;
+	text-align: center;
+
+	height: 100%;
+}
+
+.grid>* {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+button {
+	background-color: var(--bg-color2);
+	color: var(--txt-color2);
+
+	padding: 10px 20px;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0px 3px black;
+}
+
+button:active {
+	box-shadow: 0px 1px black;
+}
+
+.hidden {
+	display: none;
+}
+
+/******************** HEADER SECTION ********************/
+
+.header-section {
+	background-color: var(--bg-color2);
+	width: 100%;
+	border: 1px solid black;
+}
+
 /* ! project styles */
 .accordion-examples__heading {
     text-align: center;
@@ -30,17 +75,21 @@ body {
   }
   /* accordion wrapper */
   .accordion2-wrapper {
-    display: flex;
-    flex-direction: column;
+	  display: flex;
+	  flex-direction: column;
     justify-content: center;
     align-items: center;
+	margin: 20px;
+	width: 100%;
   }
   
   /* accordion card */
   .accordion2-card {
-    width: 380px;
+	  border-radius: 1rem;
+	  width: 600px;
     border: double rgb(32, 181, 218);
     background-color: rgb(194, 234, 245);
+	margin-bottom: 5px;
   }
   
   /* accordion header */
@@ -48,7 +97,7 @@ body {
     color: #202020;
     position: relative;
     padding: 10px;
-    margin-bottom: 0;
+    margin: 10px;
   }
   
   /* icons */
