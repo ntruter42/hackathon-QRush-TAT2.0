@@ -139,9 +139,10 @@ button:active {
   .icons {
     position: absolute;
     right: 10px;
-    color: rgb(218, 187, 32);
+    color: #936969;
     transform: rotate(0deg);
     transition: transform 300ms, color 300ms;
+    /* filter: drop-shadow(1px 1px ); */
   }
   
 
@@ -149,7 +150,7 @@ button:active {
   /* javascript css classes to be added and removed */
   .toggleIcon {
     transform: rotate(45deg);
-    color: hsl(0, 70%, 50%);
+    color: hsl(0, 39%, 6%);
   }
   
   .active {
