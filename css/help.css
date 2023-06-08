@@ -75,8 +75,8 @@ button:active {
   }
   /* accordion wrapper */
   .accordion2-wrapper {
-    display: flex;
-    flex-direction: column;
+	  display: flex;
+	  flex-direction: column;
     justify-content: center;
     align-items: center;
 	margin: 20px;
@@ -85,8 +85,8 @@ button:active {
   
   /* accordion card */
   .accordion2-card {
-	border-radius: 1rem;
-    width: 600px;
+	  border-radius: 1rem;
+	  width: 600px;
     border: double rgb(32, 181, 218);
     background-color: rgb(194, 234, 245);
 	margin-bottom: 5px;
@@ -97,7 +97,7 @@ button:active {
     color: #202020;
     position: relative;
     padding: 10px;
-    margin-bottom: 0;
+    margin: 10px;
   }
   
   /* icons */
