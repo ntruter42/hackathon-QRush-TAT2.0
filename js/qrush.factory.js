@@ -1,4 +1,51 @@
-function QRushFactory(chests, prizes, sponsors, knownChests, claimedPrizes) {
+function QRushFactory() {
+	let chests = JSON.parse(localStorage.getItem('chests')) || [];
+	let prizes = JSON.parse(localStorage.getItem('prizes')) || [];
+	let sponsors = JSON.parse(localStorage.getItem('sponsors')) || [];
+	let knownChests = JSON.parse(localStorage.getItem('knownChests')) || [];
+	let claimedPrizes = JSON.parse(localStorage.getItem('claimedPrizes')) || [];
+
+	// Dummy information for testing starts here //////////////////////////////////
+	let dummyChests = [
+		{ 'chest_id': 1000, 'prize_id': 2000, 'location': '32.546, -18.456' },
+		{ 'chest_id': 1001, 'prize_id': 2001, 'location': '32.546, -18.456' },
+		{ 'chest_id': 1002, 'prize_id': 0, 'location': '32.546, -18.456' }
+	];
+	let dummyPrizes = [
+		{ 'prize_id': 2000, 'sponsor_id': 3000, 'prize_title': 'R100 Uber Voucher', 'count': 100 },
+		{ 'prize_id': 2001, 'sponsor_id': 3001, 'prize_title': '5GB Telkom Data Bundle', 'count': 100 },
+		{ 'prize_id': 2002, 'sponsor_id': 3002, 'prize_title': '1 Ster-Kinekor Ticket', 'count': 100 }
+	];
+	let dummySponsors = [
+		{ 'sponsor_id': 3000, 'sponsor_name': 'Uber', 'location': '32.546, -18.456', 'email': 'usama68@gmail.com' },
+		{ 'sponsor_id': 3001, 'sponsor_name': 'Ster-Kinekor', 'location': '32.546, -18.456', 'email': 'stefanygretzinger@cinema.com' },
+		{ 'sponsor_id': 3002, 'sponsor_name': 'Telkom', 'location': '32.546, -18.456', 'email': 'tamlynr@telkom.com' }
+	];
+	let dummyKnownChests = [1001, 1002];
+	let dummyClaimedPrizes = [2001];
+
+	if (getChests().length === 0) {
+		// localStorage.setItem('chests', []);
+		localStorage.setItem('chests', JSON.stringify(dummyChests));
+	}
+	if (getPrizes().length === 0) {
+		// localStorage.setItem('prizes', []);
+		localStorage.setItem('prizes', JSON.stringify(dummyPrizes));
+	}
+	if (getSponsors().length === 0) {
+		// localStorage.setItem('sponsors', []);
+		localStorage.setItem('sponsors', JSON.stringify(dummySponsors));
+	}
+	if (getKnownChests().length === 0) {
+		// localStorage.setItem('knownChests', []);
+		localStorage.setItem('knownChests', JSON.stringify(dummyKnownChests));
+	}
+	if (getKnownChests().length === 0) {
+		// localStorage.setItem('claimedPrizes', []);
+		localStorage.setItem('claimedPrizes', JSON.stringify(dummyClaimedPrizes));
+	}
+	// Dummy information ends here ////////////////////////////////////////////////
+
 	//////////////////// Chests
 	function setChests(chestsInput) {
 		chests = chestsInput;
@@ -107,6 +154,10 @@ function QRushFactory(chests, prizes, sponsors, knownChests, claimedPrizes) {
 		return prizes;
 	}
 
+	function getClaimedPrizes() {
+		return claimedPrizes;
+	}
+
 	// get a prize from a treasure chest and adds it to player collection
 	// then decrement that prize count
 	function collectPrize(prize_id) {
@@ -124,7 +175,7 @@ function QRushFactory(chests, prizes, sponsors, knownChests, claimedPrizes) {
 			if (knownChests.includes(chest.chest_id)) {
 				let x = parseFloat(chest.location.split(',')[0]);
 				let y = parseFloat(chest.location.split(',')[1]);
-				locations.push([chest_id.toString(), x, y, parseInt(index)]);
+				locations.push([chest.chest_id.toString(), x, y, parseInt(i)]);
 			}
 		}
 
@@ -178,6 +229,7 @@ function QRushFactory(chests, prizes, sponsors, knownChests, claimedPrizes) {
 		setPrizes,
 		getPrizes,
 		collectPrize,
+		getClaimedPrizes,
 		validateEmptyForm,
 		getMapMarkerLocations,
 		validateInput,

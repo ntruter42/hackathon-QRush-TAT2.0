@@ -81,7 +81,7 @@ button:active {
 /******************** PRIZE SECTION ********************/
 
 .prize-section {
-	/*  */
+	background-color: var(--bg-color2);
 }
 
 .prize-display {

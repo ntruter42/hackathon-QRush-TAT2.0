@@ -1,10 +1,4 @@
-const qRushInstance = QRushFactory(
-	JSON.parse(localStorage['chests']) || [],
-	JSON.parse(localStorage['prizes']) || [],
-	JSON.parse(localStorage['sponsors']) || [],
-	JSON.parse(localStorage['knownChests']) || [],
-	JSON.parse(localStorage['claimedPrizes']) || []
-);
+const qRushMap = QRushFactory();
 
 /**
  * @license
@@ -25,7 +19,7 @@ function initMap() {
 
 // Data for the markers consisting of a name, a LatLng and a zIndex for the
 // order in which these markers should display on top of each other.
-const knownChestsLocations = qRush.getMapMarkerLocations();
+const knownChestsLocations = qRushMap.getMapMarkerLocations();
 
 function setMarkers(map) {
 	// Adds markers to the map.
