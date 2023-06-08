@@ -7,9 +7,8 @@ function onScanSuccess(decodedText, decodedResult) {
 	// console.log(`Scan result: ${decodedText}`, decodedResult);
 
 	if (!isNaN(decodedText)) {
-		if (1000 <= Number(decodedText) < 2000) {
-			QrApp.discoverChest(Number(decodedText));
-			console.log(decodedText);
+		if (Number(decodedText) >= 1000 && Number(decodedText) < 2000) {
+			qRushScan.discoverChest(Number(decodedText));
 		}
 	}
 }

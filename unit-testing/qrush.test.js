@@ -82,8 +82,8 @@ describe('The QRush App factory function', function () {
 				{ 'chest_id': 33456780, 'location': '-33.92938377623288, 18.41104307597263' }
 			];
 			
-			qRush.setKnownChests(localStorageChests);
-			assert.deepEqual(localStorageChests, qRush.getKnownChests());
+			qRush.setChests(localStorageChests);
+			assert.deepEqual(localStorageChests, qRush.getChests());
 
 			let allKnownChests = [53903426, 24982562];
 
@@ -101,8 +101,8 @@ describe('The QRush App factory function', function () {
 				{ 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987', 'prizes': '' },
 				{ 'chest_id': 24982562, 'location': '-33.92938377623288, 18.41104307597263', 'prizes': '' }
 			];
-			qRush.setKnownChests(localStorageChests);
-			assert.deepEqual(localStorageChests, qRush.getKnownChests());
+			qRush.setChests(localStorageChests);
+			assert.deepEqual(localStorageChests, qRush.getChests());
 
 			let newChest1 = { 'chest_id': 33456780, 'location': '-33.92804417019321, 18.423937019115005' };
 			let newChest2 = { 'chest_id': 53903426, 'location': '-33.91786995338542, 18.422654047132987' };
@@ -121,23 +121,21 @@ describe('The QRush App factory function', function () {
 
 	describe('addSponsor, getSponsor', function () {
 		it('should return a registered company named Shoprite.', function () {
-			let CompanyName = { "companyName": 'Shoprite', "branchAddress": 'Ottery', "Date": '2023/06/6', "Email": 'shoprite@gmail.com' };
 
-			qRush.addSponsor(CompanyName);
-			assert.deepEqual([CompanyName], qRush.getSponsors());
+			qRush.addSponsor('Shoprite', 'Ottery', 'shoprite@gmail.com');
+			assert.deepEqual(['Shoprite'], qRush.getSponsors());
 		})
 
-		it('should return a registered company named Woolworths.', function () {
-			let CompanyName = { "companyName": 'Woolworths', "branchAddress": 'Claremont', "Date": '2023/05/6', "Email": 'woolies@gmail.com' };
+		it('should return a registered company named Woolworths and Shooprite.', function () {
 
-			qRush.addSponsor(CompanyName);
-			assert.deepEqual([CompanyName], qRush.getSponsors());
+			qRush.addSponsor('Woolworths', 'Claremont', 'woolies@gmail.com');
+			qRush.addSponsor('Shoprite', 'Ottery', 'shoprite@gmail.com');
+			assert.deepEqual(['Woolworths', 'Shoprite'], qRush.getSponsors());
 		})
 
 		it('should return an error message, 1 or more sections have not been been filled in.', function () {
-			let CompanyName = { "companyName": '', "branchAddress": 'Claremont', "Date": '2023/05/6', "Email": '' };
 
-			qRush.addSponsor(CompanyName);
+			qRush.addSponsor('Claremont');
 			assert.deepEqual([], qRush.getSponsors());
 		})
 	});
