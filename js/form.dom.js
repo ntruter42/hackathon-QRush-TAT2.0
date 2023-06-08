@@ -17,4 +17,4 @@ function getDetails() {
     qRushForm.addPrize(companyName.value, fullName, emailEle.value, branchAddress.value, rewardTitle.value);
 }
 
-submitBtn.addEventListener("click", getDetails());
+submitBtn.addEventListener("click", getDetails);
