@@ -8,7 +8,7 @@
 	<title>QRush | Sponsor</title>
 	<link rel="shortcut icon" href="img/icons/blue-qr.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/form.css" />
-	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSaVxGBJnYe1NY_HrO1g3BJy5KGEkNFCY&callback=initMap&v=weekly" defer></script> -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSaVxGBJnYe1NY_HrO1g3BJy5KGEkNFCY&callback=initMap&v=weekly" defer></script>
 
 </head>
 
@@ -20,48 +20,49 @@
 
 		<br>
 		<h2 id="title">ADD A REWARD</h2>
-		<p id="description">
-			Thank you for for expressing your interest we will get back to you within 24hours.
-		</p>
 
 		<form id="Sponsor-form">
 			<div class="theMessage"></div>
 			<ul>
-				<li id="emailElement">
+				<li id="email">
 					<label for="company-name">Company Name:</label>
-					<input type="" id="email" class="companyName" placeholder="Company Name" required />
+					<input type="" id="company-name" class="companyName" placeholder="Company Name" required />
 				</li>
 
 				<li id="nameElement">
-					<div id="firstname">
-						<label for="firstName-label">First Name:</label>
-						<input type="text" id="firstName" class="firstName" placeholder="First Name" required />
-					</div>
+					<label for="firstName">First Name:</label>
+					<input type="text" id="firstName" class="firstName" placeholder="Full Name" required />
 				</li>
 
 				<li id="emailElement">
-					<label for="email-label">Email:</label>
+					<label for="email">Email:</label>
 					<input type="email" id="email" class="email" placeholder="Email" required />
 				</li>
 				<li id="addressElement">
-					<label for="address-label">Branch Address:</label>
+					<label for="address">Branch Address:</label>
 					<input type="text" id="address" class="branchAddress" placeholder="Branch Address" required />
 				</li>
 
 				<li id="rewardTitleElement">
-					<label for="rewardTitle-label">Reward Title:</label>
-					<input type="rewardTitle" id="" class="rewardTitle" placeholder="Reward Title" required />
+					<label for="rewardTitle">Reward Title:</label>
+					<input type="rewardTitle" id="rewardTitle" class="rewardTitle" placeholder="Reward Title"
+						required />
 				</li>
 
 				<li id="extraComments">
 					<label for="">Number of rewards:</label>
-					<textarea class="extraComments" name="" id="" placeholder="Enter your comment here..."></textarea>
+					<input type="rewardCount" id="rewardCount" class="rewardCount" placeholder="Number of rewards"
+						required />
 				</li>
 				<li>
 					<button type="button" id="submit" class="submit-button" onclick="">
 						Submit
 					</button>
 				</li>
+
+				<p id="description">
+					Thank you for for expressing your interest!<br>We will get back to you within 24hours.
+				</p>
 			</ul>
 		</form>
 	</main>

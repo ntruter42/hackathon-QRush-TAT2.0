@@ -72,11 +72,6 @@ li {
   margin-bottom: 12%;
 }
 
-#nameElement {
-  display: flex;
-  justify-content: space-between;
-}
-
 #recommend input {
   width: 1rem;
   margin-right: 1rem;

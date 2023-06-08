@@ -2,7 +2,7 @@
 const companyName = document.querySelector(".companyName");
 const firstName = document.querySelector(".firstName");
 const lastName = document.querySelector(".lastName");
-const emailEle = document.querySelector(".email");
+const emailAddress = document.querySelector(".email");
 const branchAddress = document.querySelector(".branchAddress");
 const rewardTitle = document.querySelector(".rewardTitle");
 const submitBtn = document.querySelector(".submit-button");
@@ -21,8 +21,9 @@ function getDetails() {
 		if (status == google.maps.GeocoderStatus.OK) {
 			let latitude = results[0].geometry.location.lat();
 			let longitude = results[0].geometry.location.lng();
-			console.log(latitude + ',' + longitude);
-			// qRushForm.addPrize(companyName.value, fullName, emailEle.value, toString(latitude) + ',' + toString(longitude), rewardTitle.value);
+			console.log(qRushForm.getPrizes());
+			qRushForm.addPrize(companyName.value, fullName, emailAddress.value, latitude + ',' + longitude, rewardTitle.value);
+			console.log(qRushForm.getPrizes());
 		}
 	});
 }
