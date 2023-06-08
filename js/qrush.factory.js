@@ -174,7 +174,16 @@ function QRushFactory() {
 	// get a prize from a treasure chest and adds it to player collection
 	// then decrement that prize count
 	function collectPrize(prize_id) {
-		// 
+		if (dummyChests[prize_id]) {
+			claimedPrizes.push(prize_id);
+
+			// iterate over the length of the dummyPrizes 
+			for (let i = 0; i < dummyPrizes.length; i++) {
+				// decrement the current prize
+				const currentPrize = dummyPrizes[i];
+				currentPrize['count']--;
+			}
+		}
 	}
 
 	//////////////////// LOCATION FUNCTIONS ////////////////////
