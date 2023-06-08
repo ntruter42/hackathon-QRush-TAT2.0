@@ -179,9 +179,15 @@ function QRushFactory() {
 
 			// iterate over the length of the dummyPrizes 
 			for (let i = 0; i < dummyPrizes.length; i++) {
-				// decrement the current prize
-				const currentPrize = dummyPrizes[i];
-				currentPrize['count']--;
+				// grab the current element in the list
+				const currentPrizeObject = dummyPrizes[i];
+				// lookup the current prize id in the object for prize in the new variable
+				let currentPrize = currentPrizeObject['prize_id'];
+				// check if the currentPrize it matches with the dummyPrizes prize_id
+				if (currentPrize === dummyChests[prize_id]) {
+					// when true decrement the count value
+					currentPrize['count']--;
+				}	
 			}
 		}
 	}
