@@ -115,7 +115,19 @@ function QRushFactory() {
 
 	// add a single prize to list of prizes,
 	// then allocate it to an empty chest
-	function addPrize(sponsor_id, title, count) {
+	function addPrize(sponsor_name, fullname, email, address, title, count) {
+		let sponsor_id = getNewSponsorId();
+
+		for (let i in sponsors) {
+			if (sponsors[i].sponsor_name === sponsor_name) {
+				sponsor_id = sponsors[i].sponsor_id;
+			}
+		}
+
+		if (sponsor_id === getNewSponsorId()) {
+			addSponsor();
+		}
+		
 		let newPrize = {
 			'prize_id': getNewPrizeId(),
 			'sponsor_id': sponsor_id,
