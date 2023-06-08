@@ -7,9 +7,9 @@ function QRushFactory() {
 
 	// Dummy information for testing starts here //////////////////////////////////
 	let dummyChests = [
-		{ 'chest_id': 1000, 'prize_id': 2000, 'location': '32.546, -18.456' },
-		{ 'chest_id': 1001, 'prize_id': 2001, 'location': '32.546, -18.456' },
-		{ 'chest_id': 1002, 'prize_id': 0, 'location': '32.546, -18.456' }
+		{ 'chest_id': 1000, 'prize_id': 2000, 'location': '-33.92189272887039, 18.421979139636893' },
+		{ 'chest_id': 1001, 'prize_id': 2001, 'location': '-33.92289663586751, 18.423751297310016' },
+		{ 'chest_id': 1002, 'prize_id': 0, 'location': '-33.90697585676683, 18.4226011091381' }
 	];
 	let dummyPrizes = [
 		{ 'prize_id': 2000, 'sponsor_id': 3000, 'prize_title': 'R100 Uber Voucher', 'count': 100 },

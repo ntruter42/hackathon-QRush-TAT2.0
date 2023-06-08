@@ -25,7 +25,6 @@ function getDetails() {
 			// qRushForm.addPrize(companyName.value, fullName, emailEle.value, toString(latitude) + ',' + toString(longitude), rewardTitle.value);
 		}
 	});
-
 }
 
 submitBtn.addEventListener("click", getDetails);

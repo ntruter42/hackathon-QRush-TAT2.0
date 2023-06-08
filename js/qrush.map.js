@@ -19,15 +19,17 @@ function initMap() {
 
 // Data for the markers consisting of a name, a LatLng and a zIndex for the
 // order in which these markers should display on top of each other.
-
-const knownChestsLocations = [
+let knownChestsLocations = [
 	["Food Lover's Eatery Newspaper House", -33.92345372368263, 18.42001275498323, 1],
 	["Woolworths Head Office", -33.925619632727, 18.42358129731019, 5],
 	["Pick n Pay Family Strand Street", -33.92045185034129, 18.42201647116344, 3],
 	["Ster-Kinekor V&A Waterfront", -33.90434862254426, 18.419369368472864, 2],
 	["Sorbet Salon V&A Waterfront", -33.90397407030215, 18.41985126457071, 1],
 ];
-// const knownChestsLocations = qRushMap.getMapMarkerLocations();
+// console.log(knownChestsLocations);
+
+// knownChestsLocations = [qRushMap.getMapMarkerLocations()];
+// console.log(knownChestsLocations);
 
 function setMarkers(map) {
 	// Adds markers to the map.
@@ -36,9 +38,9 @@ function setMarkers(map) {
 	// Origins, anchor positions and coordinates of the marker increase in the X
 	// direction to the right and in the Y direction down.
 	const image = {
-		url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+		url: "https://github.com/ntruter42/hackathon-QRush-TAT2.0/raw/master/img/icons/chest.ico",
 		// This marker is 20 pixels wide by 32 pixels high.
-		size: new google.maps.Size(20, 32),
+		size: new google.maps.Size(64, 64),
 		// The origin for this image is (0, 0).
 		origin: new google.maps.Point(0, 0),
 		// The anchor for this image is the base of the flagpole at (0, 32).
