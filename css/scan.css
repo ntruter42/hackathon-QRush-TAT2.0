@@ -69,3 +69,14 @@ button:active {
 	justify-self: center;
 	margin-bottom: 20px;
 }
+
+/********************* treasureFound element  *************/
+
+.treasureFound {
+	background-color: var(--bg-color2);
+	width: 50%;
+	font-size: 1.5em;
+	margin: 20px;
+	padding: 10px 20px;
+	justify-self: center;
+}
