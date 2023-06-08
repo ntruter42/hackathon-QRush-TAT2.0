@@ -185,7 +185,7 @@ function QRushFactory() {
 				if (currentPrize === dummyChests[prize_id]) {
 					// when true decrement the count value
 					currentPrize['count']--;
-				}	
+				}
 			}
 		}
 	}
@@ -250,6 +250,24 @@ function QRushFactory() {
 		return 3000;
 	}
 
+	function getChestObject(chest_id) {
+		for (let i = 0; i < chests.length; i++) {
+			if (chests[i].chest_id === chest_id) {
+				return chests[i];
+			}
+		}
+		return false;
+	}
+
+	function getPrizeObject(prize_id) {
+		for (let i = 0; i < prizes.length; i++) {
+			if (prizes[i].prize_id === prize_id) {
+				return prizes[i];
+			}
+		}
+		return false;
+	}
+
 	return {
 		setChests,
 		getChests,
@@ -270,6 +288,8 @@ function QRushFactory() {
 		getMapMarkerLocations,
 		getNewChestId,
 		getNewPrizeId,
-		getNewSponsorId
+		getNewSponsorId,
+		getChestObject,
+		getPrizeObject
 	}
 }
