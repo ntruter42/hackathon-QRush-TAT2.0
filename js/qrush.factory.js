@@ -40,7 +40,7 @@ function QRushFactory() {
 		// localStorage.setItem('knownChests', []);
 		localStorage.setItem('knownChests', JSON.stringify(dummyKnownChests));
 	}
-	if (getKnownChests().length === 0) {
+	if (getClaimedPrizes().length === 0) {
 		// localStorage.setItem('claimedPrizes', []);
 		localStorage.setItem('claimedPrizes', JSON.stringify(dummyClaimedPrizes));
 	}
@@ -81,7 +81,7 @@ function QRushFactory() {
 		for (let i = 0; i < chests.length; i++) {
 			const currentChest = chests[i];
 
-			if (currentChest[chest_id] === id) {
+			if (currentChest.chest_id === id) {
 				knownChests.push(id);
 				return;
 			}
@@ -140,7 +140,7 @@ function QRushFactory() {
 		}
 
 		if (index >= 0) {
-			prizes.splice(i, 1);
+			prizes.splice(index, 1);
 		}
 	}
 
@@ -161,7 +161,7 @@ function QRushFactory() {
 	// get a prize from a treasure chest and adds it to player collection
 	// then decrement that prize count
 	function collectPrize(prize_id) {
-		return redeemPrize;
+		// 
 	}
 
 	//////////////////// LOCATION FUNCTIONS ////////////////////
@@ -204,15 +204,24 @@ function QRushFactory() {
 	}
 
 	function getNewChestId() {
-		return chests[chests.length - 1].id + 1;
+		if (chests.length > 0) {
+			return chests[chests.length - 1].chest_id + 1;
+		}
+		return 1000;
 	}
 
 	function getNewPrizeId() {
-		return prizes[prizes.length - 1].id + 1;
+		if (prizes.length > 0) {
+			return prizes[prizes.length - 1].prize_id + 1;
+		}
+		return 2000;
 	}
 
 	function getNewSponsorId() {
-		return sponsors[sponsors.length - 1].id + 1;
+		if (sponsors.length > 0) {
+			return sponsors[sponsors.length - 1].sponsor_id + 1;
+		}
+		return 3000;
 	}
 
 	return {

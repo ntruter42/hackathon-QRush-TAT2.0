@@ -1,3 +1,5 @@
+const qRushScan = QRushFactory();
+
 const collectButton = document.querySelector('button');
 
 function onScanSuccess(decodedText, decodedResult) {
@@ -6,7 +8,8 @@ function onScanSuccess(decodedText, decodedResult) {
 
 	if (!isNaN(decodedText)) {
 		if (1000 <= Number(decodedText) < 2000) {
-			QrApp.discoverChest(decodedText);
+			QrApp.discoverChest(Number(decodedText));
+			console.log(decodedText);
 		}
 	}
 }

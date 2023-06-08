@@ -1,3 +1,8 @@
+@font-face {
+	font-family: Rush;
+	src: url(../fonts/MontserratRegular-BWBEl.ttf);
+}
+
 :root {
 	--txt-color1: #fff;
 	--txt-color2: #000;
@@ -6,7 +11,7 @@
 	--bg-color3: linear-gradient(0.25turn, #a7d4e7, #585752);
 
 	font-size: 16px;
-	font-family: sans-serif;
+	font-family: Rush, sans-serif;
 	color: var(--txt-color2);
 }
 

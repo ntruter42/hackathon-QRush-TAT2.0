@@ -1,3 +1,24 @@
+@font-face {
+	font-family: Rush;
+	src: url(../fonts/MontserratRegular-BWBEl.ttf);
+}
+
+:root {
+	--txt-color1: #fff;
+	--txt-color2: #000;
+	--bg-color1: #2ec4b6;
+	--bg-color2: #cbf3f0;
+	--bg-color3: linear-gradient(0.25turn, #a7d4e7, #585752);
+
+	font-size: 16px;
+	font-family: Rush, sans-serif;
+	color: var(--txt-color2);
+}
+
+body {
+	background: var(--bg-color3);
+}
+
 /* ! project styles */
 .accordion-examples__heading {
     text-align: center;
