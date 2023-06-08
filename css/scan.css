@@ -73,7 +73,10 @@ button:active {
 /********************* treasureFound element  *************/
 
 .treasureFound {
-	background-color: var(--bg-color2);
+	background-color: #8f8;
+	border: 5px solid #0c0;
+	box-shadow: 0 0 10px;
+	border-radius: 1rem;
 	width: 50%;
 	font-size: 1.5em;
 	margin: 20px;
@@ -81,11 +84,11 @@ button:active {
 	justify-self: center;
 }
 
-.treasure {
+#treasure {
 	overflow: hidden;
 	background-color: #000;
 }
 
-.treasure img {
+#treasure img {
 	width: fit-content;
 }

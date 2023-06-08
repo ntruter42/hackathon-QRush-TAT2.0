@@ -3,7 +3,7 @@
 const foundTreasure = document.querySelector('.treasureFound');
 
 // hide the foundTreasure element for the first time
-foundTreasure.style.display = 'none';
+foundTreasure.classList.add('hidden');
 
 const qRushScan = QRushFactory();
 
@@ -22,8 +22,17 @@ function onScanSuccess(decodedText, decodedResult) {
 
 			console.log(foundPrize.url);
 			document.getElementById("prize-img").src = foundPrize.url;
-			document.getElementById("prize-img").classList.remove('hidden');
+			document.getElementById("treasure").classList.remove('hidden');
 			document.getElementById("reader").classList.add('hidden');
+			foundTreasure.classList.remove('hidden');
+
+			collectButton.addEventListener('click', function () {
+				qRushScan.collectPrize(foundPrize.prize_id);
+				foundTreasure.innerHTML = "You've got it!";
+				setTimeout(function () {
+					foundTreasure.classList.add('hidden');
+				}, 3000);
+			});
 		}
 	}
 }
