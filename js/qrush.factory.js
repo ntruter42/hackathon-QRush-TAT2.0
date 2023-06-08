@@ -172,20 +172,10 @@ function QRushFactory() {
 	// get a prize from a treasure chest and adds it to player collection
 	// then decrement that prize count
 	function collectPrize(prize_id) {
-		if (getPrizeObject(prize_id)) {
-			claimedPrizes.push(prize_id);
-
-			// iterate over the length of the dummyPrizes 
-			for (let i = 0; i < dummyPrizes.length; i++) {
-				// grab the current element in the list
-				const currentPrizeObject = dummyPrizes[i];
-				// lookup the current prize id in the object for prize in the new variable
-				let currentPrize = currentPrizeObject['prize_id'];
-				// check if the currentPrize it matches with the dummyPrizes prize_id
-				if (currentPrize === dummyChests[prize_id]) {
-					// when true decrement the count value
-					currentPrize['count']--;
-				}
+		for (let i in prizes){
+			if (prizes[i].prize_id === prize_id){
+				claimedPrizes.push(prize_id);
+				prizes[i].count -= 1;
 			}
 		}
 	}
