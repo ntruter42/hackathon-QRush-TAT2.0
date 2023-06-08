@@ -4,49 +4,76 @@
 <head>
   <title>WeeklyPrizes</title>
   <style>
+ 
  body {
-      background-color: #222;
-      color: #fff;
-   
-      margin: auto;
-      padding: 15px;
-    }
+  background-color: #a7d4e7;
+  color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-    .prize-container {
-      display: flex;
-      flex-wrap: wrap;
-      width: 660px;
-      justify-content: space-between;
-      margin: 20px;
-    }
 
-    .prize {
-      width: 200px;
-      margin-bottom: 20px;
-      background-color: #002240;
-      padding: 20px;
-    }
+.prize-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
+}
 
-    .prize-image {
-      width: 100%;
-      height: auto;
-    }
+.prize {
+  width: 220px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
 
-    .prize-description {
-      text-align: center;
-      margin-top: 10px;
-    }
+.prize:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-    button {
-      background-color: #002240;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 0 10px;
-    }
+.prize-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
 
+.prize-description {
+  margin-top: 10px;
+}
+
+button {
+  background-color: #002240;
+  color: #e2c0c0;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+button {
+	background-color: #404058;
+
+	padding: 10px 20px;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0px 3px black;
+}
+
+button:active {
+	box-shadow: 0px 1px black;
+}
+h1{
+  color: #dbe3e9;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+    font-family: sans; color:rgb(32, 175, 218);
+}
   </style>
 </head>
 
