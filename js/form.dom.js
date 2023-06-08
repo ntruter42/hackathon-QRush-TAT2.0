@@ -1,19 +1,20 @@
-//Selecting all the elements and buttons
+// dom elements reference
 const companyName = document.querySelector(".companyName");
-const fullName = document.querySelector(".firstName");
-const email = document.querySelector(".email");
+const firstName = document.querySelector(".firstName");
+const lastName = document.querySelector(".lastName");
+const emailEle = document.querySelector(".email");
 const branchAddress = document.querySelector(".branchAddress");
 const rewardTitle = document.querySelector(".rewardTitle");
 const submitBtn = document.querySelector(".submit-button");
 
-let prizeBasket = [];
+// factory function instance
+const qRushForm = QRushFactory();
 
-function uniqueID(companyName, firstName, lastName, email, branchAddress, rewardTitle, extraComments) {
+function getDetails() {
 
-
-
-  
-
+        let fullName = firstName.value + ' ' + lastName.value;
+    
+    qRushForm.addPrize(companyName.value, fullName, emailEle.value, branchAddress.value, rewardTitle.value);
 }
 
-submitBtn.addEventListener("click", uniqueID())
+submitBtn.addEventListener("click", getDetails());
