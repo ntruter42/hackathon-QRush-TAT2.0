@@ -11,10 +11,9 @@ let qRush = QRushFactory();
 function initMap() {
 	const map = new google.maps.Map(document.getElementById("map"), {
 		zoom: 15,
-		center: { lat: -33.9, lng: 18.4 },
+		center: { lat: -33.928269059148, lng: 18.4238902272072 },
 	});
 
-	
 	setMarkers(map);
 }
 
