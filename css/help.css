@@ -79,13 +79,17 @@ button:active {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+	margin: 20px;
+	width: 100%;
   }
   
   /* accordion card */
   .accordion2-card {
-    width: 380px;
+	border-radius: 1rem;
+    width: 600px;
     border: double rgb(32, 181, 218);
     background-color: rgb(194, 234, 245);
+	margin-bottom: 5px;
   }
   
   /* accordion header */
