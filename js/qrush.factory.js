@@ -124,10 +124,11 @@ function QRushFactory() {
 			}
 		}
 
+		// TODO: use Google API to convert address to string
 		if (sponsor_id === getNewSponsorId()) {
-			addSponsor();
+			addSponsor(sponsor_name, address, email);
 		}
-		
+
 		let newPrize = {
 			'prize_id': getNewPrizeId(),
 			'sponsor_id': sponsor_id,
@@ -207,7 +208,7 @@ function QRushFactory() {
 	}
 
 	// validates a single input for an empty field
-	function validateInput(formInput) {
+	function validateEmptyInput(formInput) {
 		if (formInput === "") {
 			return false;
 		}
@@ -252,8 +253,8 @@ function QRushFactory() {
 		collectPrize,
 		getClaimedPrizes,
 		validateEmptyForm,
+		validateEmptyInput,
 		getMapMarkerLocations,
-		validateInput,
 		getNewChestId,
 		getNewPrizeId,
 		getNewSponsorId

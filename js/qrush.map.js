@@ -19,7 +19,15 @@ function initMap() {
 
 // Data for the markers consisting of a name, a LatLng and a zIndex for the
 // order in which these markers should display on top of each other.
-const knownChestsLocations = qRushMap.getMapMarkerLocations();
+
+const knownChestsLocations = [
+	["Food Lover's Eatery Newspaper House", -33.92345372368263, 18.42001275498323, 1],
+	["Woolworths Head Office", -33.925619632727, 18.42358129731019, 5],
+	["Pick n Pay Family Strand Street", -33.92045185034129, 18.42201647116344, 3],
+	["Ster-Kinekor V&A Waterfront", -33.90434862254426, 18.419369368472864, 2],
+	["Sorbet Salon V&A Waterfront", -33.90397407030215, 18.41985126457071, 1],
+];
+// const knownChestsLocations = qRushMap.getMapMarkerLocations();
 
 function setMarkers(map) {
 	// Adds markers to the map.
