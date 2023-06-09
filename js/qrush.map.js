@@ -12,7 +12,6 @@ function initMap() {
 	const map = new google.maps.Map(document.getElementById("map"), {
 		zoom: 15,
 		center: qRushMap.getMarkerAverageCenter(),
-		// center: { lat: -33.928269059148, lng: 18.4238902272072 },
 	});
 
 	setMarkers(map);
@@ -21,6 +20,7 @@ function initMap() {
 // Data for the markers consisting of a name, a LatLng and a zIndex for the
 // order in which these markers should display on top of each other.
 let chestLocations = qRushMap.getMapMarkerLocations();
+console.log(chestLocations)
 
 function setMarkers(map) {
 	// Adds markers to the map.
@@ -29,9 +29,9 @@ function setMarkers(map) {
 	// Origins, anchor positions and coordinates of the marker increase in the X
 	// direction to the right and in the Y direction down.
 	const image = {
-		url: "https://github.com/ntruter42/hackathon-QRush-TAT2.0/raw/master/img/icons/chest.ico",
+		url: "https://github.com/ntruter42/hackathon-QRush-TAT2.0/blob/master/img/icons/chest32.png?raw=true",
 		// This marker is 20 pixels wide by 32 pixels high.
-		size: new google.maps.Size(64, 64),
+		size: new google.maps.Size(32, 32),
 		// The origin for this image is (0, 0).
 		origin: new google.maps.Point(0, 0),
 		// The anchor for this image is the base of the flagpole at (0, 32).

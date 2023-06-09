@@ -18,7 +18,7 @@ function QRushFactory() {
 	let dummyPrizes = [
 		{ 'prize_id': 2000, 'sponsor_id': 3000, 'prize_title': 'R200 Uber Voucher', 'count': 169, 'url': './img/prizes/uber_r200_voucher.jpg' },
 		{ 'prize_id': 2001, 'sponsor_id': 3001, 'prize_title': '10GB Telkom Data Bundle', 'count': 320, 'url': './img/prizes/telkom_10gb_discount.jpeg' },
-		{ 'prize_id': 2002, 'sponsor_id': 3002, 'prize_title': '2 Ster-Kinekor Tickets', 'count': 12, 'url': './img/prizes/ster-kinekor_2_tickets.jpeg' },
+		{ 'prize_id': 2002, 'sponsor_id': 3002, 'prize_title': '2 Ster-Kinekor Tickets', 'count': 12, 'url': './img/prizes/ster-kinekor_2_tickets.png' },
 		{ 'prize_id': 2003, 'sponsor_id': 3002, 'prize_title': 'Food Lovers 30% Discount', 'count': 49, 'url': './img/prizes/food_lover_30percent_discount.jpg' },
 		{ 'prize_id': 2004, 'sponsor_id': 3002, 'prize_title': 'Pick n Pay R50 discount', 'count': 120, 'url': './img/prizes/picknpay_r50_discount.jpeg' }
 	];
