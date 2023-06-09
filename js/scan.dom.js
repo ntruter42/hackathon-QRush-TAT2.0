@@ -25,14 +25,18 @@ function onScanSuccess(decodedText, decodedResult) {
 			document.getElementById("treasure").classList.remove('hidden');
 			document.getElementById("reader").classList.add('hidden');
 			foundTreasure.classList.remove('hidden');
+			foundTreasure.innerHTML = "Treasure found!";
 
 			collectButton.addEventListener('click', function () {
 				qRushScan.collectPrize(foundPrize.prize_id);
-				foundTreasure.innerHTML = "You've got it!";
+				foundTreasure.innerHTML = "Treasure collected";
 				setTimeout(function () {
 					foundTreasure.classList.add('hidden');
-				}, 3000);
+					window.location.href = './index.html';
+				}, 5000);
 			});
+		} else {
+			foundTreasure.innerHTML = "";
 		}
 	}
 }

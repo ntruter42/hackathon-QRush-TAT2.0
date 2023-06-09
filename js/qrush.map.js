@@ -11,7 +11,8 @@ const qRushMap = QRushFactory();
 function initMap() {
 	const map = new google.maps.Map(document.getElementById("map"), {
 		zoom: 15,
-		center: { lat: -33.928269059148, lng: 18.4238902272072 },
+		center: qRushMap.getMarkerAverageCenter(),
+		// center: { lat: -33.928269059148, lng: 18.4238902272072 },
 	});
 
 	setMarkers(map);
@@ -19,17 +20,7 @@ function initMap() {
 
 // Data for the markers consisting of a name, a LatLng and a zIndex for the
 // order in which these markers should display on top of each other.
-let knownChestsLocations = [
-	["Food Lover's Eatery Newspaper House", -33.92345372368263, 18.42001275498323, 1],
-	["Woolworths Head Office", -33.925619632727, 18.42358129731019, 5],
-	["Pick n Pay Family Strand Street", -33.92045185034129, 18.42201647116344, 3],
-	["Ster-Kinekor V&A Waterfront", -33.90434862254426, 18.419369368472864, 2],
-	["Sorbet Salon V&A Waterfront", -33.90397407030215, 18.41985126457071, 1],
-];
-// console.log(knownChestsLocations);
-
-// knownChestsLocations = [qRushMap.getMapMarkerLocations()];
-// console.log(knownChestsLocations);
+let chestLocations = qRushMap.getMapMarkerLocations();
 
 function setMarkers(map) {
 	// Adds markers to the map.
@@ -54,8 +45,8 @@ function setMarkers(map) {
 		type: "poly",
 	};
 
-	for (let i = 0; i < knownChestsLocations.length; i++) {
-		const chest = knownChestsLocations[i];
+	for (let i = 0; i < chestLocations.length; i++) {
+		const chest = chestLocations[i];
 
 		new google.maps.Marker({
 			position: { lat: chest[1], lng: chest[2] },
