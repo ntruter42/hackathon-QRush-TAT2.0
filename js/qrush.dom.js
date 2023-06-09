@@ -29,9 +29,12 @@ function showClaimedPrizes() {
 		claimedPrizes.children[1].append(divElement);
 	}
 
-	if (!claimedPrizes.firstElementChild) {
+	if (claimedPrizes.firstElementChild) {
 		claimedPrizes.classList.add('hidden');
 		unclaimedPrizes.classList.remove('hidden');
+	} else {
+		claimedPrizes.classList.remove('hidden');
+		unclaimedPrizes.classList.add('hidden');
 	}
 }
 

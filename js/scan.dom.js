@@ -47,17 +47,19 @@ function onScanSuccess(decodedText, decodedResult) {
 				}, 3000);
 			});
 		} else {
-			foundTreasure.innerHTML = "That's not a treasure chest :\\";
+			foundTreasure.innerHTML = "That's not a treasure chest :|";
+			foundTreasure.classList.remove('hidden');
 			setTimeout(function () {
 				foundTreasure.classList.add('hidden');
-				window.location.href = './scan.html';
+				window.location.href = './index.html';
 			}, 3000);
 		}
 	} else {
-		foundTreasure.innerHTML = "That's not a treasure chest :\\";
+		foundTreasure.innerHTML = "That's not a treasure chest :|";
+		foundTreasure.classList.remove('hidden');
 		setTimeout(function () {
 			foundTreasure.classList.add('hidden');
-			window.location.href = './scan.html';
+			window.location.href = './index.html';
 		}, 3000);
 	}
 }
