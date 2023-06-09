@@ -6,6 +6,7 @@ const nextButton = document.getElementById('next');
 const prevButton = document.getElementById('previous');
 const claimedPrizes = document.querySelector('.claimed');
 const unclaimedPrizes = document.querySelector('.unclaimed');
+showClaimedPrizes();
 
 function swapPrizeDisplay() {
 	claimedPrizes.classList.toggle('hidden');
@@ -13,10 +14,10 @@ function swapPrizeDisplay() {
 }
 
 function showClaimedPrizes() {
-	let claimedPrizes = qRushInstance.getClaimedPrizes();
+	let claimed = qRushInstance.getClaimedPrizes();
 
-	for (let id in claimedPrizes) {
-		let currentPrize = qRushInstance.getPrizeObject(claimedPrizes[id]);
+	for (let id in claimed) {
+		let currentPrize = qRushInstance.getPrizeObject(claimed[id]);
 
 		let imgElement = document.createElement('img');
 		imgElement.src = currentPrize.url;
@@ -25,7 +26,12 @@ function showClaimedPrizes() {
 		divElement.classList.add('prize');
 
 		divElement.append(imgElement);
-		unclaimedPrizes.append(divElement);
+		claimedPrizes.children[1].append(divElement);
+	}
+
+	if (!claimedPrizes.firstElementChild) {
+		claimedPrizes.classList.add('hidden');
+		unclaimedPrizes.classList.remove('hidden');
 	}
 }
 

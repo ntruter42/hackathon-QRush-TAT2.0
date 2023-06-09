@@ -9,25 +9,25 @@ function QRushFactory() {
 	let dummyChests = [
 		{ 'chest_id': 1000, 'prize_id': 2000, 'location': '-33.9220352, 18.4220006' },
 		{ 'chest_id': 1001, 'prize_id': 0, 'location': '-33.923069, 18.4238172' },
-		{ 'chest_id': 1002, 'prize_id': 2004, 'location': '-33.9117977, 18.4226978' },
+		{ 'chest_id': 1002, 'prize_id': 2001, 'location': '-33.9117977, 18.4226978' },
 		{ 'chest_id': 1003, 'prize_id': 2003, 'location': '-33.9327695, 18.4230611' },
 		{ 'chest_id': 1004, 'prize_id': 0, 'location': '-33.9278084, 18.4165421' },
 		{ 'chest_id': 1005, 'prize_id': 2002, 'location': '-33.9319319, 18.408851' },
-		{ 'chest_id': 1006, 'prize_id': 2001, 'location': '-33.920699, 18.421795' }
+		{ 'chest_id': 1006, 'prize_id': 2004, 'location': '-33.920699, 18.421795' },
 	];
 	let dummyPrizes = [
-		{ 'prize_id': 2000, 'sponsor_id': 3000, 'prize_title': 'R200 Uber Voucher', 'count': 169, 'url': './img/prizes/uber_r200_voucher.jpg' },
-		{ 'prize_id': 2001, 'sponsor_id': 3001, 'prize_title': '10GB Telkom Data Bundle', 'count': 320, 'url': './img/prizes/telkom_10gb_discount.jpeg' },
-		{ 'prize_id': 2002, 'sponsor_id': 3002, 'prize_title': '2 Ster-Kinekor Tickets', 'count': 12, 'url': './img/prizes/ster-kinekor_2_tickets.png' },
-		{ 'prize_id': 2003, 'sponsor_id': 3002, 'prize_title': 'Food Lovers 30% Discount', 'count': 49, 'url': './img/prizes/food_lover_30percent_discount.jpg' },
-		{ 'prize_id': 2004, 'sponsor_id': 3002, 'prize_title': 'Pick n Pay R50 discount', 'count': 120, 'url': './img/prizes/picknpay_r50_discount.jpeg' }
+		{ 'prize_id': 2000, 'sponsor_id': 3000, 'prize_title': 'Pick n Pay R50 discount', 'count': 120, 'url': './img/prizes/picknpay_r50_discount.jpeg' },
+		{ 'prize_id': 2001, 'sponsor_id': 3001, 'prize_title': '2 Ster-Kinekor Tickets', 'count': 12, 'url': './img/prizes/ster-kinekor_2_tickets.png' },
+		{ 'prize_id': 2002, 'sponsor_id': 3002, 'prize_title': '10GB Telkom Data Bundle', 'count': 320, 'url': './img/prizes/telkom_10gb_discount.jpeg' },
+		{ 'prize_id': 2003, 'sponsor_id': 3003, 'prize_title': 'Food Lovers 30% Discount', 'count': 49, 'url': './img/prizes/food_lover_30percent_discount.jpg' },
+		{ 'prize_id': 2004, 'sponsor_id': 3004, 'prize_title': 'R200 Uber Voucher', 'count': 169, 'url': './img/prizes/uber_r200_voucher.jpg' },
 	];
 	let dummySponsors = [
 		{ 'sponsor_id': 3000, 'sponsor_name': 'Pick n Pay Family Strand Street', 'location': '-33.920699, 18.421795', 'email': 'info@picknpay.com' },
 		{ 'sponsor_id': 3001, 'sponsor_name': 'Ster-Kinekor V&A Waterfront', 'location': '-33.9044466, 18.4193801', 'email': 'steffanygretzinger@cinema.com' },
-		{ 'sponsor_id': 3002, 'sponsor_name': 'Telkom Direct Sea Point', 'location': '-33.9113301, 18.3937723', 'email': 'tamlyn@telkom.com' }
+		{ 'sponsor_id': 3002, 'sponsor_name': 'Telkom Direct Sea Point', 'location': '-33.9113301, 18.3937723', 'email': 'tamlyn@telkom.com' },
 	];
-	let dummyKnownChests = [1001, 1002];
+	let dummyKnownChests = [];
 	let dummyClaimedPrizes = [];
 
 	if (getChests().length === 0) {
@@ -51,6 +51,14 @@ function QRushFactory() {
 		localStorage.setItem('claimedPrizes', JSON.stringify(dummyClaimedPrizes));
 	}
 	// Dummy information ends here ////////////////////////////////////////////////
+
+	function updateLocalStorage() {
+		localStorage.setItem('chests', JSON.stringify(getChests()));
+		localStorage.setItem('prizes', JSON.stringify(getPrizes()));
+		localStorage.setItem('sponsors', JSON.stringify(getSponsors()));
+		localStorage.setItem('knownChests', JSON.stringify(getKnownChests()));
+		localStorage.setItem('claimedPrizes', JSON.stringify(getClaimedPrizes()));
+	}
 
 	//////////////////// Chests
 	function setChests(chestsInput) {
@@ -301,5 +309,6 @@ function QRushFactory() {
 		getNewSponsorId,
 		getChestObject,
 		getPrizeObject,
+		updateLocalStorage,
 	}
 }

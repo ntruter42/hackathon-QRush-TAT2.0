@@ -27,11 +27,6 @@ body {
   text-align: center;
 }
 
-
-body {
-	background: var(--bg-color3);
-}
-
 .header-section {
 	display: flex;
 	align-items: center;
@@ -164,9 +159,5 @@ a {
   }
   label {
     font-size: 1rem;
-  }
-
-  body {
-    background: #8dae9c;
   }
 }

@@ -7,7 +7,7 @@ foundTreasure.classList.add('hidden');
 
 const qRushScan = QRushFactory();
 
-const collectButton = document.querySelector('button');
+const collectButton = document.querySelector('#collect-button');
 
 function onScanSuccess(decodedText, decodedResult) {
 	html5QrcodeScanner.clear();
@@ -22,8 +22,10 @@ function onScanSuccess(decodedText, decodedResult) {
 
 			if (foundPrize) {
 				foundTreasure.innerHTML = "Treasure found :D";
+				collectButton.classList.remove('hidden');
 			} else {
 				foundTreasure.innerHTML = "No treasure here :(";
+				collectButton.classList.add('hidden');
 				setTimeout(function () {
 					foundTreasure.classList.add('hidden');
 					window.location.href = './index.html';
@@ -38,6 +40,7 @@ function onScanSuccess(decodedText, decodedResult) {
 			collectButton.addEventListener('click', function () {
 				qRushScan.collectPrize(foundPrize.prize_id);
 				foundTreasure.innerHTML = "Collected :)";
+				qRushScan.updateLocalStorage();
 				setTimeout(function () {
 					foundTreasure.classList.add('hidden');
 					window.location.href = './index.html';
