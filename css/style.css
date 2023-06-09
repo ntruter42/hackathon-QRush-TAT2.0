@@ -89,6 +89,10 @@ button:active {
 	background-color: var(--bg-color2);
 }
 
+.prize-section h2 {
+	margin-bottom: 20px;
+}
+
 .prize-display {
 	display: flex;
 	justify-content: space-evenly;

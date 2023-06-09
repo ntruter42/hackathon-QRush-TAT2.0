@@ -12,6 +12,23 @@ function swapPrizeDisplay() {
 	unclaimedPrizes.classList.toggle('hidden');
 }
 
+function showClaimedPrizes() {
+	let claimedPrizes = qRushInstance.getClaimedPrizes();
+
+	for (let id in claimedPrizes) {
+		let currentPrize = qRushInstance.getPrizeObject(claimedPrizes[id]);
+
+		let imgElement = document.createElement('img');
+		imgElement.src = currentPrize.url;
+
+		let divElement = document.createElement('div');
+		divElement.classList.add('prize');
+
+		divElement.append(imgElement);
+		unclaimedPrizes.append(divElement);
+	}
+}
+
 nextButton.addEventListener('click', swapPrizeDisplay);
 
 prevButton.addEventListener('click', swapPrizeDisplay);

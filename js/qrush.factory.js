@@ -28,7 +28,7 @@ function QRushFactory() {
 		{ 'sponsor_id': 3002, 'sponsor_name': 'Telkom Direct Sea Point', 'location': '-33.9113301, 18.3937723', 'email': 'tamlyn@telkom.com' }
 	];
 	let dummyKnownChests = [1001, 1002];
-	let dummyClaimedPrizes = [2001];
+	let dummyClaimedPrizes = [];
 
 	if (getChests().length === 0) {
 		// localStorage.setItem('chests', []);
